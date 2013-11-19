@@ -22,6 +22,8 @@
 		34C7EAAA183BDC40004EB549 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA89183BDC3F004EB549 /* UIKit.framework */; };
 		34C7EAB2183BDC40004EB549 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EAB0183BDC40004EB549 /* InfoPlist.strings */; };
 		34C7EAB4183BDC40004EB549 /* RoombMoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EAB3183BDC40004EB549 /* RoombMoteTests.m */; };
+		34C7EABF183BDCE8004EB549 /* WiFiDongleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EABE183BDCE8004EB549 /* WiFiDongleController.m */; };
+		34C7EAC2183BDD17004EB549 /* RMRoombaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EAC1183BDD17004EB549 /* RMRoombaController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		34C7EAAF183BDC40004EB549 /* RoombMoteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RoombMoteTests-Info.plist"; sourceTree = "<group>"; };
 		34C7EAB1183BDC40004EB549 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		34C7EAB3183BDC40004EB549 /* RoombMoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoombMoteTests.m; sourceTree = "<group>"; };
+		34C7EABD183BDCE8004EB549 /* WiFiDongleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFiDongleController.h; sourceTree = "<group>"; };
+		34C7EABE183BDCE8004EB549 /* WiFiDongleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFiDongleController.m; sourceTree = "<group>"; };
+		34C7EAC0183BDD17004EB549 /* RMRoombaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRoombaController.h; sourceTree = "<group>"; };
+		34C7EAC1183BDD17004EB549 /* RMRoombaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRoombaController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,10 @@
 				34C7EA9A183BDC3F004EB549 /* Main_iPad.storyboard */,
 				34C7EA9D183BDC3F004EB549 /* RMViewController.h */,
 				34C7EA9E183BDC3F004EB549 /* RMViewController.m */,
+				34C7EAC0183BDD17004EB549 /* RMRoombaController.h */,
+				34C7EAC1183BDD17004EB549 /* RMRoombaController.m */,
+				34C7EABD183BDCE8004EB549 /* WiFiDongleController.h */,
+				34C7EABE183BDCE8004EB549 /* WiFiDongleController.m */,
 				34C7EAA0183BDC40004EB549 /* Images.xcassets */,
 				34C7EA8C183BDC3F004EB549 /* Supporting Files */,
 			);
@@ -255,8 +265,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C7EA92183BDC3F004EB549 /* main.m in Sources */,
+				34C7EABF183BDCE8004EB549 /* WiFiDongleController.m in Sources */,
 				34C7EA96183BDC3F004EB549 /* RMAppDelegate.m in Sources */,
 				34C7EA9F183BDC3F004EB549 /* RMViewController.m in Sources */,
+				34C7EAC2183BDD17004EB549 /* RMRoombaController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
