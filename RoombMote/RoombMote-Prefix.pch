@@ -14,3 +14,11 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+//#define NDEBUG
+
+#ifdef NDEBUG
+#define DLog(f, ...) // NSLOG would have been here.
+#else
+#define DLog(f, ...) NSLog(f, ## __VA_ARGS__)
+#endif

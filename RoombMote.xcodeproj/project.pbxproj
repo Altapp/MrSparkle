@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34712C76183BE03F001C22A0 /* LXSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 34712C75183BE03F001C22A0 /* LXSocket.m */; };
 		34C7EA86183BDC3F004EB549 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA85183BDC3F004EB549 /* Foundation.framework */; };
 		34C7EA88183BDC3F004EB549 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA87183BDC3F004EB549 /* CoreGraphics.framework */; };
 		34C7EA8A183BDC3F004EB549 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA89183BDC3F004EB549 /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34712C74183BE03F001C22A0 /* LXSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSocket.h; sourceTree = "<group>"; };
+		34712C75183BE03F001C22A0 /* LXSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSocket.m; sourceTree = "<group>"; };
 		34C7EA82183BDC3F004EB549 /* RoombMote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoombMote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34C7EA85183BDC3F004EB549 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		34C7EA87183BDC3F004EB549 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -130,6 +133,8 @@
 				34C7EAC1183BDD17004EB549 /* RMRoombaController.m */,
 				34C7EABD183BDCE8004EB549 /* WiFiDongleController.h */,
 				34C7EABE183BDCE8004EB549 /* WiFiDongleController.m */,
+				34712C74183BE03F001C22A0 /* LXSocket.h */,
+				34712C75183BE03F001C22A0 /* LXSocket.m */,
 				34C7EAA0183BDC40004EB549 /* Images.xcassets */,
 				34C7EA8C183BDC3F004EB549 /* Supporting Files */,
 			);
@@ -266,6 +271,7 @@
 			files = (
 				34C7EA92183BDC3F004EB549 /* main.m in Sources */,
 				34C7EABF183BDCE8004EB549 /* WiFiDongleController.m in Sources */,
+				34712C76183BE03F001C22A0 /* LXSocket.m in Sources */,
 				34C7EA96183BDC3F004EB549 /* RMAppDelegate.m in Sources */,
 				34C7EA9F183BDC3F004EB549 /* RMViewController.m in Sources */,
 				34C7EAC2183BDD17004EB549 /* RMRoombaController.m in Sources */,
@@ -487,6 +493,7 @@
 				34C7EAB9183BDC40004EB549 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		34C7EABA183BDC40004EB549 /* Build configuration list for PBXNativeTarget "RoombMoteTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +502,7 @@
 				34C7EABC183BDC40004EB549 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
