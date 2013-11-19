@@ -10,22 +10,24 @@
 #import "WiFiDongleController.h"
 
 @protocol RMRoombaControllerDelegate <NSObject>
-@optional
+@required
 -(void)roombaControllerDidStart;
 -(void)roombaControllerCantStart;
+-(void)roombaControllerDidStop;
 @end
 
 @interface RMRoombaController : NSObject <WiFiDongleControllerDelegate>
 {
 	id <RMRoombaControllerDelegate> delegate;
-    WiFiDongleController *wifiDongle;
 }
 
 @property (retain) id delegate;
-@property (nonatomic, retain) WiFiDongleController *wifiDongle;
 
 -(void)startRoombaController;
 -(void)stopRoombaController;
+-(BOOL)RoombaIsConnected;
 
+-(BOOL)VacuumIsOn;
+-(void)toggleVacuumState;
 
 @end

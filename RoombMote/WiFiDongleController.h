@@ -11,7 +11,7 @@
 
 
 @protocol WiFiDongleControllerDelegate <NSObject>
-@optional
+@required
 -(void)notConnectedToWiFiDongleNetwork;
 -(void)lostConnectionToWiFiDongleNetwork;
 -(void)cantInitializeWiFiDongleSocket;
@@ -21,25 +21,12 @@
 @interface WiFiDongleController : NSObject
 {
 	id <WiFiDongleControllerDelegate> delegate;
-    LXSocket *wiSocket;
-    NSTimer *wifiSearchTimer;
-    NSTimer *wifiTimeoutTimer;
-    NSTimer *wifiPeriodicSearchTimer;
-    NSTimer *socketSearchTimer;
-    NSTimer *socketTimeoutTimer;
 }
 
 @property (retain) id delegate;
-@property (nonatomic, retain) LXSocket *wiSocket;
-@property (nonatomic, retain) NSTimer *wifiSearchTimer;
-@property (nonatomic, retain) NSTimer *wifiTimeoutTimer;
-@property (nonatomic, retain) NSTimer *wifiPeriodicSearchTimer;
-@property (nonatomic, retain) NSTimer *socketSearchTimer;
-@property (nonatomic, retain) NSTimer *socketTimeoutTimer;
 
 -(void)connectToWiFiDongle;
 -(void)disconnectFromWiFiDongle;
-
 -(BOOL)sendData:(NSData *)data;
 -(void*)readByte;
 

@@ -11,10 +11,26 @@
 
 
 @interface WiFiDongleController ()
+{
+    LXSocket *wiSocket;
+    NSTimer *wifiSearchTimer;
+    NSTimer *wifiTimeoutTimer;
+    NSTimer *wifiPeriodicSearchTimer;
+    NSTimer *socketSearchTimer;
+    NSTimer *socketTimeoutTimer;
+}
+
+@property (nonatomic, retain) LXSocket *wiSocket;
+@property (nonatomic, retain) NSTimer *wifiSearchTimer;
+@property (nonatomic, retain) NSTimer *wifiTimeoutTimer;
+@property (nonatomic, retain) NSTimer *wifiPeriodicSearchTimer;
+@property (nonatomic, retain) NSTimer *socketSearchTimer;
+@property (nonatomic, retain) NSTimer *socketTimeoutTimer;
+
 -(void)connectToWiFiDongleSocket;
--(void)searchForWiFiDongle;
+-(void)searchForWiFiDongleNetwork;
 -(BOOL)checkForWiFiDongleSSID;
--(void)stopSearchingForWiFiDongle;
+-(void)stopSearchingForWiFiDongleNetwork;
 -(void)periodicWiFiDongleNetworkCheck;
 -(void)tryToOpenSocket;
 -(void)didOpenSocket;
@@ -63,9 +79,9 @@ BOOL WiFiSocketIsOpen = NO;
     {
         WiFiSocketIsOpen = NO;
         //search for connection to correct SSID every 5 seconds for a max of 2 minutes
-        wifiSearchTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(searchForWiFiDongle) userInfo:nil repeats:YES];
-        wifiTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:122 target:self selector:@selector(stopSearchingForWiFiDongle) userInfo:nil repeats:NO];
-        [self searchForWiFiDongle];//check once in case we're already good to go
+        wifiSearchTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(searchForWiFiDongleNetwork) userInfo:nil repeats:YES];
+        wifiTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:122 target:self selector:@selector(stopSearchingForWiFiDongleNetwork) userInfo:nil repeats:NO];
+        [self stopSearchingForWiFiDongleNetwork];//check once in case we're already good to go
     }
 }
 
@@ -102,9 +118,9 @@ BOOL WiFiSocketIsOpen = NO;
     [self closeSocket];
 }
 
--(void)searchForWiFiDongle
+-(void)searchForWiFiDongleNetwork
 {
-    DLog(@"WiFiDongleController searchForWiFiDongle");
+    DLog(@"WiFiDongleController searchForWiFiDongleNetwork");
     
     if([self checkForWiFiDongleSSID])
     {
@@ -112,7 +128,7 @@ BOOL WiFiSocketIsOpen = NO;
         
         //stop searching for SSID
         [self stopTimer:wifiTimeoutTimer];
-        [self stopSearchingForWiFiDongle];
+        [self stopSearchingForWiFiDongleNetwork];
     }
     else
         WiFiDongleConnected = NO;
@@ -124,10 +140,8 @@ BOOL WiFiSocketIsOpen = NO;
     
     BOOL connected = NO;
     NSString *ssid = @"";
-    NSString *search1 = @"WiSnap";
-    NSString *search2 = @"Wifly";
-    NSString *search3 = @"LTC";
     
+    //get current SSID from captive network info
     NSArray *ifs = (__bridge id)CNCopySupportedInterfaces();
     id info = nil;
     for (NSString *ifnam in ifs)
@@ -136,7 +150,8 @@ BOOL WiFiSocketIsOpen = NO;
         if (info && [info count])
         {
             ssid = [info objectForKey:@"SSID"];
-            if([ssid hasPrefix:search1] || [ssid hasPrefix:search2] || [ssid hasPrefix:search3])
+            
+            if([ssid hasPrefix:@"WiSnap"] || [ssid hasPrefix:@"Wifly"] || [ssid hasPrefix:@"LTC"])
             {
                 connected = YES;
                 break;
@@ -147,19 +162,21 @@ BOOL WiFiSocketIsOpen = NO;
     return connected;
 }
 
--(void)stopSearchingForWiFiDongle
+-(void)stopSearchingForWiFiDongleNetwork
 {
-    DLog(@"WiFiDongleController stopSearchingForWiFiDongle");
+    DLog(@"WiFiDongleController stopSearchingForWiFiDongleNetwork");
     
     [self stopTimer:wifiSearchTimer];
     
+    //not connected to WiFiDongle's Network
     if(WiFiDongleConnected)
     {
+        //start trying to open socket
         [self connectToWiFiDongleSocket];
     }
-    else
+    else //not connected to WiFiDongle's Network
     {
-        //reset
+        //reset controller
         [self disconnectFromWiFiDongle];
         
         //notify delegate
@@ -176,7 +193,7 @@ BOOL WiFiSocketIsOpen = NO;
     {
         [self stopTimer:wifiPeriodicSearchTimer];
         
-        //reset
+        //reset controller
         [self disconnectFromWiFiDongle];
         
         //notify delegate
@@ -234,7 +251,7 @@ BOOL WiFiSocketIsOpen = NO;
 {
     DLog(@"WiFiDongleController cantOpenSocket");
     
-    //reset
+    //reset controller
     [self disconnectFromWiFiDongle];
     
     //notify delegate
