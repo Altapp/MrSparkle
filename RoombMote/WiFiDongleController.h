@@ -12,49 +12,35 @@
 
 @protocol WiFiDongleControllerDelegate <NSObject>
 @optional
--(void)didInitializeWiFiSocket;
--(void)cantInitializeWiFiSocket;
--(void)notConnectedToWiFiDongle;
--(void)lostConnectionToWiFiDongle;
+-(void)notConnectedToWiFiDongleNetwork;
+-(void)lostConnectionToWiFiDongleNetwork;
+-(void)cantInitializeWiFiDongleSocket;
+-(void)didConnectToWiFiDongle;
 @end
 
 @interface WiFiDongleController : NSObject
 {
 	id <WiFiDongleControllerDelegate> delegate;
-    
     LXSocket *wiSocket;
     NSTimer *wifiSearchTimer;
     NSTimer *wifiTimeoutTimer;
+    NSTimer *wifiPeriodicSearchTimer;
     NSTimer *socketSearchTimer;
     NSTimer *socketTimeoutTimer;
 }
 
 @property (retain) id delegate;
-
 @property (nonatomic, retain) LXSocket *wiSocket;
 @property (nonatomic, retain) NSTimer *wifiSearchTimer;
 @property (nonatomic, retain) NSTimer *wifiTimeoutTimer;
+@property (nonatomic, retain) NSTimer *wifiPeriodicSearchTimer;
 @property (nonatomic, retain) NSTimer *socketSearchTimer;
 @property (nonatomic, retain) NSTimer *socketTimeoutTimer;
 
 -(void)connectToWiFiDongle;
--(void)connectToWiFiDongleSocket;
 -(void)disconnectFromWiFiDongle;
-
--(void)searchForWiFiDongle;
--(BOOL)checkForWiFiDongleSSID;
--(void)stopSearchingForWiFiDongle;
-
--(void)tryToOpenSocket;
--(void)didOpenSocket;
--(void)cantOpenSocket;
--(void)stopTryingToOpenSocket;
--(void)closeSocket;
-
--(void)stopTimer:(NSTimer *)timer;
 
 -(BOOL)sendData:(NSData *)data;
 -(void*)readByte;
-
 
 @end

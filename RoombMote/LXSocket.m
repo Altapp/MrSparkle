@@ -10,7 +10,7 @@
 @implementation LXSocket
 
 + (id)socket {
-	return [[[LXSocket alloc] init] autorelease];
+	return [[LXSocket alloc] init];
 }
 
 - (id)initWithCSocket:(SOCKET)_socket {
@@ -78,13 +78,13 @@
 }
 
 - (BOOL)sendBytes:(const void*)bytes length:(unsigned)len {
-	int sent = send(m_socket, bytes, len, 0);
+	int8_t sent = send(m_socket, bytes, len, 0);
 	return sent == len;
 }
 
 - (void*)readBytesWithLength:(unsigned)len {
 	void* buffer = malloc(len);
-	int received = recv(m_socket, buffer, len, 0);
+	int8_t received = recv(m_socket, buffer, len, 0);
 	if (received <= 0) {
 		free(buffer);
 		return NULL;
@@ -108,7 +108,7 @@
 //added by jess latimer 2013-10-28
 - (void*)readByte {
 	void* buffer = malloc(1);
-	int received = recv(m_socket, buffer, 1, MSG_DONTWAIT);
+	int8_t received = recv(m_socket, buffer, 1, MSG_DONTWAIT);
 	if (received <= 0 || received > 1) {
 		free(buffer);
 		return NULL;
@@ -120,7 +120,7 @@
 	const void* ptr = [data bytes];
 	BOOL succeeded = NO;
 	//if ([self sendInt: [data length]]) //we have our own length field!
-		if ([self sendBytes: ptr length: [data length]]) succeeded = YES;
+		if ([self sendBytes: ptr length: (unsigned)[data length]]) succeeded = YES;
 	//free(ptr);
 	return succeeded;
 }
@@ -138,6 +138,7 @@
 	return nil;
 }
 
+/*
 - (BOOL)sendObject:(id)object {
 	NSMutableData* data = [[NSMutableData alloc] init];
 	NSKeyedArchiver* archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData: data];
@@ -159,6 +160,7 @@
 	}
 	return nil;
 }
+*/
 
 - (BOOL)sendInt:(int)n {
 	return [self sendBytes: &n length: sizeof(n)];
@@ -227,7 +229,7 @@
 
 - (void)sendString:(NSString*)string {
 	const char* s = [string UTF8String];
-	int len = strlen(s);
+	int16_t len = strlen(s);
 	[self sendInt: len];
 	[self sendBytes: s length: len + 1];
 }
@@ -254,7 +256,7 @@
 
 - (void)dealloc {
 	close(m_socket);
-	[super dealloc];
+	//[super dealloc];
 }
 
 @end

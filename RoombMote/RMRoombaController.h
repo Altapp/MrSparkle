@@ -7,7 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WiFiDongleController.h"
 
-@interface RMRoombaController : NSObject
+@protocol RMRoombaControllerDelegate <NSObject>
+@optional
+-(void)roombaControllerDidStart;
+-(void)roombaControllerCantStart;
+@end
+
+@interface RMRoombaController : NSObject <WiFiDongleControllerDelegate>
+{
+	id <RMRoombaControllerDelegate> delegate;
+    WiFiDongleController *wifiDongle;
+}
+
+@property (retain) id delegate;
+@property (nonatomic, retain) WiFiDongleController *wifiDongle;
+
+-(void)startRoombaController;
+-(void)stopRoombaController;
+
 
 @end

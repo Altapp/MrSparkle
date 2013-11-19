@@ -30,8 +30,8 @@
 - (long)readLong;
 - (BOOL)sendData:(NSData*)data;
 - (NSData*)readData;
-- (BOOL)sendObject:(id)object;
-- (id)readObject;
+/*- (BOOL)sendObject:(id)object;
+- (id)readObject;*/
 - (NSString*)resolveHostName:(NSString*)hostName;
 - (void)sendString:(NSString*)string;
 - (NSString*)readString;

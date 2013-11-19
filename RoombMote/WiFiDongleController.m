@@ -9,6 +9,22 @@
 #import "WiFiDongleController.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 
+
+@interface WiFiDongleController ()
+-(void)connectToWiFiDongleSocket;
+-(void)searchForWiFiDongle;
+-(BOOL)checkForWiFiDongleSSID;
+-(void)stopSearchingForWiFiDongle;
+-(void)periodicWiFiDongleNetworkCheck;
+-(void)tryToOpenSocket;
+-(void)didOpenSocket;
+-(void)cantOpenSocket;
+-(void)stopTryingToOpenSocket;
+-(void)closeSocket;
+-(void)stopTimer:(NSTimer *)timer;
+@end
+
+
 @implementation WiFiDongleController
 
 
@@ -16,6 +32,7 @@
 @synthesize wiSocket;
 @synthesize wifiSearchTimer;
 @synthesize wifiTimeoutTimer;
+@synthesize wifiPeriodicSearchTimer;
 @synthesize socketSearchTimer;
 @synthesize socketTimeoutTimer;
 
@@ -74,6 +91,7 @@ BOOL WiFiSocketIsOpen = NO;
     //stop timers
     [self stopTimer:wifiSearchTimer];
     [self stopTimer:wifiTimeoutTimer];
+    [self stopTimer:wifiPeriodicSearchTimer];
     [self stopTimer:socketSearchTimer];
     [self stopTimer:socketTimeoutTimer];
     
@@ -110,11 +128,11 @@ BOOL WiFiSocketIsOpen = NO;
     NSString *search2 = @"Wifly";
     NSString *search3 = @"LTC";
     
-    NSArray *ifs = (id)CNCopySupportedInterfaces();
+    NSArray *ifs = (__bridge id)CNCopySupportedInterfaces();
     id info = nil;
     for (NSString *ifnam in ifs)
     {
-        info = (id)CNCopyCurrentNetworkInfo((CFStringRef)ifnam);
+        info = (__bridge id)CNCopyCurrentNetworkInfo((__bridge CFStringRef)ifnam);
         if (info && [info count])
         {
             ssid = [info objectForKey:@"SSID"];
@@ -135,14 +153,34 @@ BOOL WiFiSocketIsOpen = NO;
     
     [self stopTimer:wifiSearchTimer];
     
-    if(!WiFiDongleConnected)
+    if(WiFiDongleConnected)
     {
-        [self disconnectFromWiFiDongle];
-        [[self delegate] notConnectedToWiFiDongle];
+        [self connectToWiFiDongleSocket];
     }
     else
     {
-        [self connectToWiFiDongleSocket];
+        //reset
+        [self disconnectFromWiFiDongle];
+        
+        //notify delegate
+        [[self delegate] notConnectedToWiFiDongleNetwork];
+    }
+}
+
+-(void)periodicWiFiDongleNetworkCheck
+{
+    DLog(@"WiFiDongleController periodicWiFiDongleNetworkCheck");
+    
+    //no longer connected to correct network SSID
+    if(![self checkForWiFiDongleSSID])
+    {
+        [self stopTimer:wifiPeriodicSearchTimer];
+        
+        //reset
+        [self disconnectFromWiFiDongle];
+        
+        //notify delegate
+        [[self delegate] lostConnectionToWiFiDongleNetwork];
     }
 }
 
@@ -153,7 +191,6 @@ BOOL WiFiSocketIsOpen = NO;
     //open socket to wisnap module for API comms
     if ([wiSocket connect: @"169.254.1.1" port: 2000] == YES)
     {
-        DLog(@"created socket");
         WiFiSocketIsOpen = YES;
         
         //stop trying to open socket
@@ -184,31 +221,34 @@ BOOL WiFiSocketIsOpen = NO;
 {
     DLog(@"WiFiDongleController didOpenSocket");
     
+    //we are finished setting up dongle conneciton
+    
     //notify delegate
-    [[self delegate] didInitializeWiFiSocket];
+    [[self delegate] didConnectToWiFiDongle];
+    
+    //start periodically confirming network connection
+    wifiPeriodicSearchTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(periodicWiFiDongleNetworkCheck) userInfo:nil repeats:YES];
 }
 
 -(void)cantOpenSocket
 {
     DLog(@"WiFiDongleController cantOpenSocket");
     
+    //reset
     [self disconnectFromWiFiDongle];
     
     //notify delegate
-    [[self delegate] cantInitializeWiFiSocket];
+    [[self delegate] cantInitializeWiFiDongleSocket];
 }
 
 -(void)closeSocket
 {
     DLog(@"WiFiDongleController closeSocket");
     
-    if(WiFiSocketIsOpen)
-    {
-        if(wiSocket != nil)
-            [wiSocket close];
-        wiSocket = nil;
-        WiFiSocketIsOpen = NO;
-    }
+    if(wiSocket != nil)
+        [wiSocket close];
+    wiSocket = nil;
+    WiFiSocketIsOpen = NO;
 }
 
 -(void)stopTimer:(NSTimer *)timer

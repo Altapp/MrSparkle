@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RMRoombaController.h"
 
-@interface RMViewController : UIViewController
+@interface RMViewController : UIViewController <RMRoombaControllerDelegate>
+{
+    RMRoombaController *roombaController;
+}
+
+@property (nonatomic, retain) RMRoombaController *roombaController;
+
+-(void)roombaControllerDidStart;
+-(void)roombaControllerCantStart;
 
 @end
