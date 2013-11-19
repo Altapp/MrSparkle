@@ -12,10 +12,10 @@
 
 @protocol WiFiDongleControllerDelegate <NSObject>
 @optional
--(void)didInitializeSocket;
--(void)cantInitializeSocket;
--(void)notConnectedToWiSnap;
--(void)lostConnectionToWiSnap;
+-(void)didInitializeWiFiSocket;
+-(void)cantInitializeWiFiSocket;
+-(void)notConnectedToWiFiDongle;
+-(void)lostConnectionToWiFiDongle;
 @end
 
 @interface WiFiDongleController : NSObject
@@ -38,6 +38,7 @@
 @property (nonatomic, retain) NSTimer *socketTimeoutTimer;
 
 -(void)connectToWiFiDongle;
+-(void)connectToWiFiDongleSocket;
 -(void)disconnectFromWiFiDongle;
 
 -(void)searchForWiFiDongle;
