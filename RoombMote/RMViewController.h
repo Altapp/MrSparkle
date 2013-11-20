@@ -11,13 +11,10 @@
 
 @interface RMViewController : UIViewController <RMRoombaControllerDelegate>
 {
-    RMRoombaController *roombaController;
-    
     IBOutlet UILabel *statusLabel;
     IBOutlet UIButton *vacuumButton;
 }
 
-@property (nonatomic, retain) RMRoombaController *roombaController;
 @property (nonatomic, retain) IBOutlet UILabel *statusLabel;
 @property (nonatomic, retain) IBOutlet UIButton *vacuumButton;
 

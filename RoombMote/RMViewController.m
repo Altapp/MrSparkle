@@ -9,10 +9,16 @@
 #import "RMViewController.h"
 
 @interface RMViewController ()
+{
+    RMRoombaController *roombaController;
+}
+
+@property (nonatomic, retain) RMRoombaController *roombaController;
 
 -(void)roombaControllerDidStart;
 -(void)roombaControllerCantStart;
 -(void)roombaControllerDidStop;
+
 @end
 
 @implementation RMViewController
@@ -28,10 +34,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    roombaController = [[RMRoombaController alloc] init];
-    [roombaController startRoombaController];
-    
     self.statusLabel.text = @"Connecting...";
+    
+    roombaController = [[RMRoombaController alloc] init];
+    [roombaController setDelegate:self];
+    [roombaController startRoombaController];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,12 +76,11 @@
 {
     if([roombaController RoombaIsConnected])
     {
-        if([roombaController VacuumIsOn])
-            self.vacuumButton.titleLabel.text = @"Stop Vacuum";
-        else
-            self.vacuumButton.titleLabel.text = @"Start Vacuum";
-                
         [roombaController toggleVacuumState];
+        if([roombaController VacuumIsOn])
+            [self.vacuumButton setTitle:@"Stop Vacuum" forState:UIControlStateNormal];
+        else
+            [self.vacuumButton setTitle:@"Start Vacuum" forState:UIControlStateNormal];
     }
 }
 

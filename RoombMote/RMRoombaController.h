@@ -28,6 +28,6 @@
 -(BOOL)RoombaIsConnected;
 
 -(BOOL)VacuumIsOn;
--(void)toggleVacuumState;
+-(BOOL)toggleVacuumState;
 
 @end

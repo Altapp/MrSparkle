@@ -25,6 +25,10 @@
 -(void)RoombaControlScheduler;
 -(void)RoombaDataReceiver:(WiFiDongleController *)connectedDongle;
 -(void)processDataReceviedFromRoomba:(NSMutableData *)receivedData;
+
+-(void)sendRoombaStartCommands;
+-(BOOL)sendStartCommand;
+-(BOOL)sendControlCommand;
 @end
 
 
@@ -57,6 +61,7 @@ BOOL VacuumIsRunning = NO;
     
     SendBuffer = [[NSMutableArray alloc] init];
     wifiDongle = [[WiFiDongleController alloc] init];
+    [wifiDongle setDelegate:self];
     
     [wifiDongle connectToWiFiDongle];
 }
@@ -118,11 +123,15 @@ BOOL VacuumIsRunning = NO;
     
     RunController = YES;
     
+    [[self delegate] roombaControllerDidStart];
+    
+    [self sendRoombaStartCommands];
+    
     //start new thread to schedule roomba control
-    [NSThread detachNewThreadSelector:@selector(RoombaControlScheduler) toTarget:self withObject:nil];
+    //[NSThread detachNewThreadSelector:@selector(RoombaControlScheduler) toTarget:self withObject:nil];
     
     //start new thread to manage receiving bytes from roomba
-    [NSThread detachNewThreadSelector:@selector(RoombaDataReceiver:) toTarget:self withObject:wifiDongle];
+    //[NSThread detachNewThreadSelector:@selector(RoombaDataReceiver:) toTarget:self withObject:wifiDongle];
 }
 
 
@@ -182,6 +191,57 @@ BOOL VacuumIsRunning = NO;
 }
 
 
+-(void)sendRoombaStartCommands
+{
+	DLog(@"RMRoombaController sendRoombaStartCommands");
+    
+    //need to wait between changing control state
+    [self performSelector:@selector(sendStartCommand) withObject:nil afterDelay:0.1];
+    [self performSelector:@selector(sendControlCommand) withObject:nil afterDelay:0.2];
+}
+
+-(BOOL)sendStartCommand
+{
+	DLog(@"RMRoombaController sendStartCommand");
+    
+    if(!RunController)
+        return NO;
+    
+    unsigned char *buffer;
+    buffer = malloc(1);
+    
+    buffer[0] = 0x80;
+    
+    NSMutableData *dataToSend = [[NSMutableData alloc] init];
+    [dataToSend appendBytes:buffer length:1];
+    
+    free(buffer);
+    
+    return [wifiDongle sendData:dataToSend];
+}
+
+-(BOOL)sendControlCommand
+{
+	DLog(@"RMRoombaController sendControlCommand");
+    
+    //puts the roomba into "safe" mode
+    
+    if(!RunController)
+        return NO;
+    
+    unsigned char *buffer;
+    buffer = malloc(1);
+    
+    buffer[0] = 0x82;
+    
+    NSMutableData *dataToSend = [[NSMutableData alloc] init];
+    [dataToSend appendBytes:buffer length:1];
+    
+    free(buffer);
+    
+    return [wifiDongle sendData:dataToSend];
+}
+
 -(BOOL)VacuumIsOn
 {
 	DLog(@"RMRoombaController VacuumIsOn");
@@ -189,18 +249,37 @@ BOOL VacuumIsRunning = NO;
     return VacuumIsRunning;
 }
 
--(void)toggleVacuumState
+-(BOOL)toggleVacuumState
 {
 	DLog(@"RMRoombaController toggleVacuumState");
+    
+    if(!RunController)
+        return NO;
+    
+    unsigned char *buffer;
+    buffer = malloc(2);
+    
+    buffer[0] = 0x8A;
     
     if(VacuumIsRunning)
     {
         //stop vacuum
+        buffer[1] = 0x00;
+        VacuumIsRunning = NO;
     }
     else
     {
         //start vacuum
+        buffer[1] = 0x02;
+        VacuumIsRunning = YES;
     }
+    
+    NSMutableData *dataToSend = [[NSMutableData alloc] init];
+    [dataToSend appendBytes:buffer length:2];
+    
+    free(buffer);
+    
+    return [wifiDongle sendData:dataToSend];
 }
 
 @end

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34712C76183BE03F001C22A0 /* LXSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 34712C75183BE03F001C22A0 /* LXSocket.m */; };
+		34AD36B2183D71E3007880E1 /* WiFiDongleController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AD36B1183D71E3007880E1 /* WiFiDongleController.a */; };
+		34AD36B4183D72ED007880E1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AD36B3183D72ED007880E1 /* SystemConfiguration.framework */; };
 		34C7EA86183BDC3F004EB549 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA85183BDC3F004EB549 /* Foundation.framework */; };
 		34C7EA88183BDC3F004EB549 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA87183BDC3F004EB549 /* CoreGraphics.framework */; };
 		34C7EA8A183BDC3F004EB549 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA89183BDC3F004EB549 /* UIKit.framework */; };
@@ -23,7 +24,6 @@
 		34C7EAAA183BDC40004EB549 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA89183BDC3F004EB549 /* UIKit.framework */; };
 		34C7EAB2183BDC40004EB549 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EAB0183BDC40004EB549 /* InfoPlist.strings */; };
 		34C7EAB4183BDC40004EB549 /* RoombMoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EAB3183BDC40004EB549 /* RoombMoteTests.m */; };
-		34C7EABF183BDCE8004EB549 /* WiFiDongleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EABE183BDCE8004EB549 /* WiFiDongleController.m */; };
 		34C7EAC2183BDD17004EB549 /* RMRoombaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EAC1183BDD17004EB549 /* RMRoombaController.m */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		34712C74183BE03F001C22A0 /* LXSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSocket.h; sourceTree = "<group>"; };
-		34712C75183BE03F001C22A0 /* LXSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSocket.m; sourceTree = "<group>"; };
+		34AD36B1183D71E3007880E1 /* WiFiDongleController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = WiFiDongleController.a; path = ../WiFiDongleController/Products/WiFiDongleController.a; sourceTree = "<group>"; };
+		34AD36B3183D72ED007880E1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		34C7EA82183BDC3F004EB549 /* RoombMote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoombMote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34C7EA85183BDC3F004EB549 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		34C7EA87183BDC3F004EB549 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,8 +60,6 @@
 		34C7EAAF183BDC40004EB549 /* RoombMoteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RoombMoteTests-Info.plist"; sourceTree = "<group>"; };
 		34C7EAB1183BDC40004EB549 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		34C7EAB3183BDC40004EB549 /* RoombMoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoombMoteTests.m; sourceTree = "<group>"; };
-		34C7EABD183BDCE8004EB549 /* WiFiDongleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFiDongleController.h; sourceTree = "<group>"; };
-		34C7EABE183BDCE8004EB549 /* WiFiDongleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFiDongleController.m; sourceTree = "<group>"; };
 		34C7EAC0183BDD17004EB549 /* RMRoombaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRoombaController.h; sourceTree = "<group>"; };
 		34C7EAC1183BDD17004EB549 /* RMRoombaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRoombaController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34AD36B4183D72ED007880E1 /* SystemConfiguration.framework in Frameworks */,
+				34AD36B2183D71E3007880E1 /* WiFiDongleController.a in Frameworks */,
 				34C7EA88183BDC3F004EB549 /* CoreGraphics.framework in Frameworks */,
 				34C7EA8A183BDC3F004EB549 /* UIKit.framework in Frameworks */,
 				34C7EA86183BDC3F004EB549 /* Foundation.framework in Frameworks */,
@@ -112,6 +112,8 @@
 		34C7EA84183BDC3F004EB549 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34AD36B3183D72ED007880E1 /* SystemConfiguration.framework */,
+				34AD36B1183D71E3007880E1 /* WiFiDongleController.a */,
 				34C7EA85183BDC3F004EB549 /* Foundation.framework */,
 				34C7EA87183BDC3F004EB549 /* CoreGraphics.framework */,
 				34C7EA89183BDC3F004EB549 /* UIKit.framework */,
@@ -131,10 +133,6 @@
 				34C7EA9E183BDC3F004EB549 /* RMViewController.m */,
 				34C7EAC0183BDD17004EB549 /* RMRoombaController.h */,
 				34C7EAC1183BDD17004EB549 /* RMRoombaController.m */,
-				34C7EABD183BDCE8004EB549 /* WiFiDongleController.h */,
-				34C7EABE183BDCE8004EB549 /* WiFiDongleController.m */,
-				34712C74183BE03F001C22A0 /* LXSocket.h */,
-				34712C75183BE03F001C22A0 /* LXSocket.m */,
 				34C7EAA0183BDC40004EB549 /* Images.xcassets */,
 				34C7EA8C183BDC3F004EB549 /* Supporting Files */,
 			);
@@ -270,8 +268,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C7EA92183BDC3F004EB549 /* main.m in Sources */,
-				34C7EABF183BDCE8004EB549 /* WiFiDongleController.m in Sources */,
-				34712C76183BE03F001C22A0 /* LXSocket.m in Sources */,
 				34C7EA96183BDC3F004EB549 /* RMAppDelegate.m in Sources */,
 				34C7EA9F183BDC3F004EB549 /* RMViewController.m in Sources */,
 				34C7EAC2183BDD17004EB549 /* RMRoombaController.m in Sources */,
@@ -411,9 +407,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jesslatimer/Work/WiFiDongleController/Products,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RoombMote/RoombMote-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Users/jesslatimer/Work/WiFiDongleController/Products/include/**",
+				);
 				INFOPLIST_FILE = "RoombMote/RoombMote-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jesslatimer/Work/WiFiDongleController/Products,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -424,9 +433,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jesslatimer/Work/WiFiDongleController/Products,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RoombMote/RoombMote-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Users/jesslatimer/Work/WiFiDongleController/Products/include/**",
+				);
 				INFOPLIST_FILE = "RoombMote/RoombMote-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jesslatimer/Work/WiFiDongleController/Products,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
