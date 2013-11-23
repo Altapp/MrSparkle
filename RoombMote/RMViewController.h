@@ -7,23 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RMRoombaController.h"
+#import "RoombaController.h"
 
-@interface RMViewController : UIViewController <RMRoombaControllerDelegate>
+@interface RMViewController : UIViewController <RoombaControllerDelegate>
 {
     IBOutlet UILabel *statusLabel;
-    IBOutlet UIButton *vacuumButton;
-    IBOutlet UIButton *connectButton;
+    IBOutlet UIBarButtonItem *vacuumButton;
+    IBOutlet UIBarButtonItem *connectButton;
     IBOutlet UIButton *driveControl;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *statusLabel;
-@property (nonatomic, retain) IBOutlet UIButton *vacuumButton;
-@property (nonatomic, retain) IBOutlet UIButton *connectButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *vacuumButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *connectButton;
 @property (nonatomic, retain) IBOutlet UIButton *driveControl;
 
--(IBAction)connectButtonAction:(UIButton *)button;
--(IBAction)vacuumButtonAction:(UIButton *)button;
+-(IBAction)connectButtonAction:(UIBarButtonItem *)button;
+-(IBAction)vacuumButtonAction:(UIBarButtonItem *)button;
 -(IBAction)driveControlTouchDownAction:(UILongPressGestureRecognizer *)recognizer;
 -(IBAction)driveControlTouchUpAction:(id)sender;
 -(void)sendDriveCommandWithTouchLocation:(CGPoint)touchLocation;

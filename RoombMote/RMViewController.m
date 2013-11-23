@@ -10,10 +10,10 @@
 
 @interface RMViewController ()
 {
-    RMRoombaController *roombaController;
+    RoombaController *roombaController;
 }
 
-@property (nonatomic, retain) RMRoombaController *roombaController;
+@property (nonatomic, retain) RoombaController *roombaController;
 
 -(void)roombaControllerDidStart;
 -(void)roombaControllerCantStart;
@@ -38,7 +38,7 @@
     
     [self.statusLabel setText:@"Not Connected."];
     
-    roombaController = [[RMRoombaController alloc] init];
+    roombaController = [[RoombaController alloc] init];
     [roombaController setDelegate:self];
 }
 
@@ -51,7 +51,7 @@
 }
 
 
-#pragma mark - RMRoombaController Delegate Methods
+#pragma mark - RoombaController Delegate Methods
 
 -(void)roombaControllerDidStart
 {
@@ -74,25 +74,25 @@
     [self.statusLabel setText:@"Not Connected."];
 }
 
--(IBAction)connectButtonAction:(UIButton *)button
+-(IBAction)connectButtonAction:(UIBarButtonItem *)button
 {
 	DLog(@"RMViewController vacuumButtonAction");
     
     if([roombaController RoombaIsConnected])
     {
         [self.statusLabel setText:@"Not Connected."];
-        [button setTitle:@"Connect" forState:UIControlStateNormal];
+        [button setTitle:@"Connect"];
         [roombaController stopRoombaController];
     }
     else
     {
         [self.statusLabel setText:@"Connecting..."];
-        [button setTitle:@"Disconnect" forState:UIControlStateNormal];
+        [button setTitle:@"Disconnect"];
         [roombaController startRoombaController];
     }
 }
 
--(IBAction)vacuumButtonAction:(UIButton *)button
+-(IBAction)vacuumButtonAction:(UIBarButtonItem *)button
 {
 	DLog(@"RMViewController vacuumButtonAction");
     
@@ -100,12 +100,12 @@
     {
         if([roombaController VacuumIsOn])
         {
-            [button setTitle:@"Start Vacuum" forState:UIControlStateNormal];
+            [button setTitle:@"Start Vacuum"];
             [roombaController sendVacuumOffCommand];
         }
         else
         {
-            [button setTitle:@"Stop Vacuum" forState:UIControlStateNormal];
+            [button setTitle:@"Stop Vacuum"];
             [roombaController sendVacuumOnCommand];
         }
     }
