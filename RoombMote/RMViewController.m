@@ -80,15 +80,15 @@
     
     if([roombaController RoombaIsConnected])
     {
-        [roombaController stopRoombaController];
-        [button setTitle:@"Connect" forState:UIControlStateNormal];
         [self.statusLabel setText:@"Not Connected."];
+        [button setTitle:@"Connect" forState:UIControlStateNormal];
+        [roombaController stopRoombaController];
     }
     else
     {
-        [roombaController startRoombaController];
-        [button setTitle:@"Disconnect" forState:UIControlStateNormal];
         [self.statusLabel setText:@"Connecting..."];
+        [button setTitle:@"Disconnect" forState:UIControlStateNormal];
+        [roombaController startRoombaController];
     }
 }
 
@@ -100,13 +100,13 @@
     {
         if([roombaController VacuumIsOn])
         {
-            [roombaController sendVacuumOffCommand];
             [button setTitle:@"Start Vacuum" forState:UIControlStateNormal];
+            [roombaController sendVacuumOffCommand];
         }
         else
         {
-            [roombaController sendVacuumOnCommand];
             [button setTitle:@"Stop Vacuum" forState:UIControlStateNormal];
+            [roombaController sendVacuumOnCommand];
         }
     }
 }
