@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "RoombaController.h"
 
+
+#define TOUCHPAD_ORIGIN 0
+#define TOUCHPAD_HALFSIZE 125
+#define STOP_ZONE_RADIUS 20
+#define ROTATE_ZONE_STARTPOINT 120
+#define STATIONARY_SPIN_SPEEN 200
+
 @interface RMViewController : UIViewController <RoombaControllerDelegate>
 {
     IBOutlet UILabel *statusLabel;

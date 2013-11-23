@@ -18,6 +18,10 @@
 -(void)roombaControllerDidStart;
 -(void)roombaControllerCantStart;
 -(void)roombaControllerDidStop;
+-(CGFloat)getDriveRadiusFromTouchX:(CGFloat)touchX;
+-(CGFloat)getDriveVelocityFromTouchY:(CGFloat)touchY;
+-(void)setDPadTouchImage:(NSString *)imageName;
+-(BOOL)isNegative:(CGFloat)number;
 @end
 
 @implementation RMViewController
@@ -116,56 +120,37 @@
 	//DLog(@"RMViewController touchPadAction");
 
     CGPoint location = [recognizer locationInView:self.driveControl];
-    [self sendDriveCommandWithTouchLocation:CGPointMake(-location.x+125, -location.y+125)];
+    CGPoint locationTransposedToCenterOrigin = CGPointMake(-location.x+TOUCHPAD_HALFSIZE, -location.y+TOUCHPAD_HALFSIZE);
+    
+    [self sendDriveCommandWithTouchLocation:locationTransposedToCenterOrigin];
 }
 
 -(IBAction)driveControlTouchUpAction:(id)sender
 {
 	DLog(@"RMViewController driveControlTouchUpAction");
     
-    [self sendDriveCommandWithTouchLocation:CGPointMake(0, 0)];
+    CGPoint driveControlStoppedPosition = CGPointMake(0, 0);
+    [self sendDriveCommandWithTouchLocation:driveControlStoppedPosition];
 }
 
 -(void)sendDriveCommandWithTouchLocation:(CGPoint)touchLocation
 {
 	DLog(@"RMViewController sendDriveCommandWithTouchLocation");
     
-    CGFloat velocity = 0;
-    CGFloat radius = 0;
-    
-    if(touchLocation.x > -20 && touchLocation.x < 20)
-        radius = [roombaController driveRadiusStraight];
-    else if(touchLocation.x < -120)
-        radius = -[roombaController driveRadiusRotate];
-    else if(touchLocation.x > 120)
-        radius = [roombaController driveRadiusRotate];
-    else if(touchLocation.x > 0)
-        radius = roundf([roombaController driveRadiusMax] * (1 - ((touchLocation.x - 20)/100)));
-    else if(touchLocation.x < 0)
-        radius = roundf([roombaController driveRadiusMax] * (-1 - ((touchLocation.x + 20)/100)));
-    
-    if(touchLocation.y > -20 && touchLocation.y < 20)
-        velocity = [roombaController driveVelocityStopped];
-    else if(touchLocation.y < -120)
-        velocity = -[roombaController driveVelocityMax];
-    else if(touchLocation.y > 120)
-        velocity = [roombaController driveVelocityMax];
-    else if(touchLocation.y > 0)
-        velocity = roundf([roombaController driveVelocityMax] * ((touchLocation.y - 20)/100));
-    else if(touchLocation.y < 0)
-        velocity = roundf([roombaController driveVelocityMax] * ((touchLocation.y + 20)/100));
+    CGFloat radius = [self getDriveRadiusFromTouchX:touchLocation.x];
+    CGFloat velocity = [self getDriveVelocityFromTouchY:touchLocation.y];
     
     [self setDPadImageFromVelocity:velocity radius:radius];
     
     //if pressing left or right, but not up or down, turn slowly in place
-    if(velocity == [roombaController driveVelocityStopped] && radius != [roombaController driveRadiusStraight])
+    if(velocity == ROOMB_VELOCITY_STOPPED && radius != ROOMB_RADIUS_STRAIGT)
     {
-        velocity = 200;
+        velocity = STATIONARY_SPIN_SPEEN;
         
-        if(radius < 0)
-            radius = -1;
-        else if(radius >= 0)
-            radius = 1;
+        if([self isNegative:radius])
+            radius = -ROOMB_RADIUS_SPIN;
+        else
+            radius = ROOMB_RADIUS_SPIN;
     }
     
     if([roombaController RoombaIsConnected])
@@ -174,37 +159,96 @@
     }
 }
 
+-(CGFloat)getDriveRadiusFromTouchX:(CGFloat)touchX
+{
+    CGFloat radius = 0;
+    CGFloat factor = 0;
+    
+    if(touchX > -STOP_ZONE_RADIUS && touchX < STOP_ZONE_RADIUS)
+        radius = ROOMB_RADIUS_STRAIGT;
+    else if(touchX < -ROTATE_ZONE_STARTPOINT)
+        radius = -ROOMB_RADIUS_SPIN;
+    else if(touchX > ROTATE_ZONE_STARTPOINT)
+        radius = ROOMB_RADIUS_SPIN;
+    else if(touchX > TOUCHPAD_ORIGIN)
+    {
+        factor = 1 - ((touchX - STOP_ZONE_RADIUS)/(ROTATE_ZONE_STARTPOINT-STOP_ZONE_RADIUS));
+        radius = roundf(ROOMB_RADIUS_MAX * factor);
+    }
+    else if(touchX < TOUCHPAD_ORIGIN)
+    {
+        factor = -1 - ((touchX + STOP_ZONE_RADIUS)/(ROTATE_ZONE_STARTPOINT-STOP_ZONE_RADIUS));
+        radius = roundf(ROOMB_RADIUS_MAX * factor);
+    }
+    
+    return radius;
+}
+
+-(CGFloat)getDriveVelocityFromTouchY:(CGFloat)touchY
+{
+    CGFloat velocity = 0;
+    CGFloat factor = 0;
+    
+    if(touchY > -STOP_ZONE_RADIUS && touchY < STOP_ZONE_RADIUS)
+        velocity = ROOMB_VELOCITY_STOPPED;
+    else if(touchY < -ROTATE_ZONE_STARTPOINT)
+        velocity = -ROOMB_VELOCITY_MAX;
+    else if(touchY > ROTATE_ZONE_STARTPOINT)
+        velocity = ROOMB_VELOCITY_MAX;
+    else if(touchY > TOUCHPAD_ORIGIN)
+    {
+        factor = (touchY - STOP_ZONE_RADIUS)/(ROTATE_ZONE_STARTPOINT-STOP_ZONE_RADIUS);
+        velocity = roundf(ROOMB_VELOCITY_MAX * factor);
+    }
+    else if(touchY < TOUCHPAD_ORIGIN)
+    {
+        factor = (touchY + STOP_ZONE_RADIUS)/(ROTATE_ZONE_STARTPOINT-STOP_ZONE_RADIUS);
+        velocity = roundf(ROOMB_VELOCITY_MAX * factor);
+    }
+    
+    return velocity;
+}
+
 -(void)setDPadImageFromVelocity:(CGFloat)velocity radius:(CGFloat)radius
 {
 	DLog(@"RMViewController setDPadImageFromVelocity");
     
-    if(velocity == [roombaController driveVelocityStopped] && radius == [roombaController driveRadiusStraight])
-        [self.driveControl setImage:[UIImage imageNamed:@"dpad-off.png"] forState:UIControlStateHighlighted];
-    else if(velocity == [roombaController driveVelocityStopped] && radius != [roombaController driveRadiusStraight])
+    if(velocity == ROOMB_VELOCITY_STOPPED && radius == ROOMB_RADIUS_STRAIGT)
+        [self setDPadTouchImage:@"dpad-off.png"];
+    else if(velocity == ROOMB_VELOCITY_STOPPED && radius != ROOMB_RADIUS_STRAIGT)
     {
-        if(radius < 0)
-            [self.driveControl setImage:[UIImage imageNamed:@"dpad-right.png"] forState:UIControlStateHighlighted];
-        else if(radius >= 0)
-            [self.driveControl setImage:[UIImage imageNamed:@"dpad-left.png"] forState:UIControlStateHighlighted];
+        if([self isNegative:radius])
+            [self setDPadTouchImage:@"dpad-right.png"];
+        else
+            [self setDPadTouchImage:@"dpad-left.png"];
     }
-    else if(velocity > [roombaController driveVelocityStopped] && radius == [roombaController driveRadiusStraight])
-        [self.driveControl setImage:[UIImage imageNamed:@"dpad-up.png"] forState:UIControlStateHighlighted];
-    else if(velocity > [roombaController driveVelocityStopped] && radius != [roombaController driveRadiusStraight])
+    else if(velocity > ROOMB_VELOCITY_STOPPED && radius == ROOMB_RADIUS_STRAIGT)
+        [self setDPadTouchImage:@"dpad-up.png"];
+    else if(velocity > ROOMB_VELOCITY_STOPPED && radius != ROOMB_RADIUS_STRAIGT)
     {
-        if(radius < 0)
-            [self.driveControl setImage:[UIImage imageNamed:@"dpad-upright.png"] forState:UIControlStateHighlighted];
-        else if(radius >= 0)
-            [self.driveControl setImage:[UIImage imageNamed:@"dpad-upleft.png"] forState:UIControlStateHighlighted];
+        if([self isNegative:radius])
+            [self setDPadTouchImage:@"dpad-upright.png"];
+        else
+            [self setDPadTouchImage:@"dpad-upleft.png"];
     }
-    else if(velocity < [roombaController driveVelocityStopped] && radius == [roombaController driveRadiusStraight])
-        [self.driveControl setImage:[UIImage imageNamed:@"dpad-down.png"] forState:UIControlStateHighlighted];
-    else if(velocity < [roombaController driveVelocityStopped] && radius != [roombaController driveRadiusStraight])
+    else if(velocity < ROOMB_VELOCITY_STOPPED && radius == ROOMB_RADIUS_STRAIGT)
+        [self setDPadTouchImage:@"dpad-down.png"];
+    else if(velocity < ROOMB_VELOCITY_STOPPED && radius != ROOMB_RADIUS_STRAIGT)
     {
-        if(radius < 0)
-            [self.driveControl setImage:[UIImage imageNamed:@"dpad-downright.png"] forState:UIControlStateHighlighted];
-        else if(radius >= 0)
-            [self.driveControl setImage:[UIImage imageNamed:@"dpad-downleft.png"] forState:UIControlStateHighlighted];
+        if([self isNegative:radius])
+            [self setDPadTouchImage:@"dpad-downright.png"];
+        else
+            [self setDPadTouchImage:@"dpad-downleft.png"];
     }
 }
 
+-(void)setDPadTouchImage:(NSString *)imageName
+{
+    [self.driveControl setImage:[UIImage imageNamed:imageName] forState:UIControlStateHighlighted];
+}
+
+-(BOOL)isNegative:(CGFloat)number
+{
+    return number < 0;
+}
 @end
