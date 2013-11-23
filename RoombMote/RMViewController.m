@@ -119,7 +119,7 @@
 	//DLog(@"RMViewController touchPadAction");
 
     CGPoint location = [recognizer locationInView:self.driveControl];
-    [self sendDriveCommandWithTouchLocation:CGPointMake(-location.x+100, -location.y+100)];
+    [self sendDriveCommandWithTouchLocation:CGPointMake(-location.x+125, -location.y+125)];
 }
 
 -(IBAction)driveControlTouchUpAction:(id)sender
@@ -164,46 +164,46 @@
 {
 	DLog(@"RMViewController sendDriveCommandWithSliderValues");
     
+    CGFloat velocity = 0;
+    CGFloat radius = 0;
+    
+    if(touchLocation.x > -20 && touchLocation.x < 20)
+        radius = [roombaController driveRadiusStraight];
+    else if(touchLocation.x < -120)
+        radius = -[roombaController driveRadiusRotate];
+    else if(touchLocation.x > 120)
+        radius = [roombaController driveRadiusRotate];
+    else if(touchLocation.x > 0)
+        radius = roundf([roombaController driveRadiusMax] * (1 - ((touchLocation.x - 20)/100)));
+    else if(touchLocation.x < 0)
+        radius = roundf([roombaController driveRadiusMax] * (-1 - ((touchLocation.x + 20)/100)));
+    
+    if(touchLocation.y > -20 && touchLocation.y < 20)
+        velocity = [roombaController driveVelocityStopped];
+    else if(touchLocation.y < -120)
+        velocity = -[roombaController driveVelocityMax];
+    else if(touchLocation.y > 120)
+        velocity = [roombaController driveVelocityMax];
+    else if(touchLocation.y > 0)
+        velocity = roundf([roombaController driveVelocityMax] * ((touchLocation.y - 20)/100));
+    else if(touchLocation.y < 0)
+        velocity = roundf([roombaController driveVelocityMax] * ((touchLocation.y + 20)/100));
+    
+    [self setDPadImageFromVelocity:velocity radius:radius];
+    
+    //if pressing left or right, but not up or down, turn slowly in place
+    if(velocity == [roombaController driveVelocityStopped] && radius != [roombaController driveRadiusStraight])
+    {
+        velocity = 200;
+        
+        if(radius < 0)
+            radius = -1;
+        else if(radius >= 0)
+            radius = 1;
+    }
+    
     if([roombaController RoombaIsConnected])
     {
-        CGFloat velocity = 0;
-        CGFloat radius = 0;
-        
-        if(touchLocation.x > -40 && touchLocation.x < 40)
-            radius = [roombaController driveRadiusStraight];
-        else if(touchLocation.x < -120)
-            radius = -[roombaController driveRadiusRotate];
-        else if(touchLocation.x > 120)
-            radius = [roombaController driveRadiusRotate];
-        else if(touchLocation.x > 0)
-            radius = roundf([roombaController driveRadiusMax] * (1 - ((touchLocation.x - 40)/80)));
-        else if(touchLocation.x < 0)
-            radius = roundf([roombaController driveRadiusMax] * (-1 - ((touchLocation.x + 40)/80)));
-        
-        if(touchLocation.y > -40 && touchLocation.y < 40)
-            velocity = [roombaController driveVelocityStopped];
-        else if(touchLocation.y < -120)
-            velocity = -[roombaController driveVelocityMax];
-        else if(touchLocation.y > 120)
-            velocity = [roombaController driveVelocityMax];
-        else if(touchLocation.y > 0)
-            velocity = roundf([roombaController driveVelocityMax] * ((touchLocation.y - 40)/80));
-        else if(touchLocation.y < 0)
-            velocity = roundf([roombaController driveVelocityMax] * ((touchLocation.y + 40)/80));
-        
-        [self setDPadImageFromVelocity:velocity radius:radius];
-        
-        //if pressing left or right, but not up or down, turn slowly in place
-        if(velocity == [roombaController driveVelocityStopped] && radius != [roombaController driveRadiusStraight])
-        {
-            velocity = 200;
-            
-            if(radius < 0)
-                radius = -1;
-            else if(radius >= 0)
-                radius = 1;
-        }
-        
         [roombaController sendDriveCommandwithVelocity:velocity radius:radius];
     }
 }
