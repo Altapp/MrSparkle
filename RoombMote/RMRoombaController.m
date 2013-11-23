@@ -25,10 +25,11 @@
 -(void)RoombaControlScheduler;
 -(void)RoombaDataReceiver:(WiFiDongleController *)connectedDongle;
 -(void)processDataReceviedFromRoomba:(NSMutableData *)receivedData;
-
 -(void)sendRoombaStartCommands;
 -(BOOL)sendStartCommand;
 -(BOOL)sendControlCommand;
+-(BOOL)sendFullCommand;
+-(BOOL)sendPowerCommand;
 @end
 
 
@@ -72,6 +73,7 @@ BOOL VacuumIsRunning = NO;
     
     //start the process of stopping, but we can't actually kill
     //here because we could cause probslems in other threads
+    [self sendPowerCommand];
     RunController = NO;
 }
 
@@ -139,7 +141,7 @@ BOOL VacuumIsRunning = NO;
 
 -(void)RoombaControlScheduler
 {
-	DLog(@"RMRoombaController RoombaControlScheduler");
+	//DLog(@"RMRoombaController RoombaControlScheduler");
     
     while (RunController)
     {
@@ -151,7 +153,7 @@ BOOL VacuumIsRunning = NO;
 
 -(void)RoombaDataReceiver:(WiFiDongleController *)connectedDongle
 {
-	DLog(@"RMRoombaController RoombaDataReceiver");
+	//DLog(@"RMRoombaController RoombaDataReceiver");
     
     void *buffer = malloc(1);
     unsigned char rxByte = 0;
@@ -186,10 +188,9 @@ BOOL VacuumIsRunning = NO;
 
 -(void)processDataReceviedFromRoomba:(NSMutableData *)receivedData
 {
-	DLog(@"RMRoombaController processDataReceviedFromRoomba");
+	//DLog(@"RMRoombaController processDataReceviedFromRoomba");
     
 }
-
 
 -(void)sendRoombaStartCommands
 {
@@ -198,6 +199,7 @@ BOOL VacuumIsRunning = NO;
     //need to wait between changing control state
     [self performSelector:@selector(sendStartCommand) withObject:nil afterDelay:0.1];
     [self performSelector:@selector(sendControlCommand) withObject:nil afterDelay:0.2];
+    [self performSelector:@selector(sendFullCommand) withObject:nil afterDelay:0.3];
 }
 
 -(BOOL)sendStartCommand
@@ -242,6 +244,50 @@ BOOL VacuumIsRunning = NO;
     return [wifiDongle sendData:dataToSend];
 }
 
+-(BOOL)sendFullCommand
+{
+	DLog(@"RMRoombaController sendFullCommand");
+    
+    //puts the roomba into "full" mode
+    
+    if(!RunController)
+        return NO;
+    
+    unsigned char *buffer;
+    buffer = malloc(1);
+    
+    buffer[0] = 0x84;
+    
+    NSMutableData *dataToSend = [[NSMutableData alloc] init];
+    [dataToSend appendBytes:buffer length:1];
+    
+    free(buffer);
+    
+    return [wifiDongle sendData:dataToSend];
+}
+
+-(BOOL)sendPowerCommand
+{
+	DLog(@"RMRoombaController sendFullCommand");
+    
+    //puts the roomba to sleep
+    
+    if(!RunController)
+        return NO;
+    
+    unsigned char *buffer;
+    buffer = malloc(1);
+    
+    buffer[0] = 0x85;
+    
+    NSMutableData *dataToSend = [[NSMutableData alloc] init];
+    [dataToSend appendBytes:buffer length:1];
+    
+    free(buffer);
+    
+    return [wifiDongle sendData:dataToSend];
+}
+
 -(BOOL)VacuumIsOn
 {
 	DLog(@"RMRoombaController VacuumIsOn");
@@ -249,30 +295,20 @@ BOOL VacuumIsRunning = NO;
     return VacuumIsRunning;
 }
 
--(BOOL)toggleVacuumState
+-(BOOL)sendVacuumOnCommand
 {
-	DLog(@"RMRoombaController toggleVacuumState");
+	DLog(@"RMRoombaController sendVacuumOnCommand");
     
     if(!RunController)
         return NO;
+    
+    VacuumIsRunning = YES;
     
     unsigned char *buffer;
     buffer = malloc(2);
     
     buffer[0] = 0x8A;
-    
-    if(VacuumIsRunning)
-    {
-        //stop vacuum
-        buffer[1] = 0x00;
-        VacuumIsRunning = NO;
-    }
-    else
-    {
-        //start vacuum
-        buffer[1] = 0x02;
-        VacuumIsRunning = YES;
-    }
+    buffer[1] = 0x02;
     
     NSMutableData *dataToSend = [[NSMutableData alloc] init];
     [dataToSend appendBytes:buffer length:2];
@@ -282,4 +318,78 @@ BOOL VacuumIsRunning = NO;
     return [wifiDongle sendData:dataToSend];
 }
 
+-(BOOL)sendVacuumOffCommand
+{
+	DLog(@"RMRoombaController sendVacuumOffCommand");
+    
+    if(!RunController)
+        return NO;
+    
+    VacuumIsRunning = NO;
+    
+    unsigned char *buffer;
+    buffer = malloc(2);
+    
+    buffer[0] = 0x8A;
+    buffer[1] = 0x00;
+    
+    NSMutableData *dataToSend = [[NSMutableData alloc] init];
+    [dataToSend appendBytes:buffer length:2];
+    
+    free(buffer);
+    
+    return [wifiDongle sendData:dataToSend];
+}
+
+-(BOOL)sendDriveCommandwithVelocity:(CGFloat)velocityFloat radius:(CGFloat)radiusFloat
+{
+	//DLog(@"RMRoombaController sendDriveCommandwithVelocity");
+    
+    if(!RunController)
+        return NO;
+    
+    DLog(@"velocity %i , radius %i",(int)velocityFloat,(int)radiusFloat);
+    
+    unsigned char *buffer;
+    buffer = malloc(5);
+    
+    buffer[0] = 0x89;
+    buffer[1] = (unsigned char)((int)velocityFloat >> 8);
+    buffer[2] = (unsigned char)(int)velocityFloat;
+    buffer[3] = (unsigned char)((int)radiusFloat >> 8);
+    buffer[4] = (unsigned char)(int)radiusFloat;
+    
+    NSMutableData *dataToSend = [[NSMutableData alloc] init];
+    [dataToSend appendBytes:buffer length:5];
+    
+    free(buffer);
+    
+    return [wifiDongle sendData:dataToSend];
+}
+
+
+-(CGFloat)driveVelocityMax
+{
+    return 500;
+}
+
+-(CGFloat)driveVelocityStopped
+{
+    return 0;
+}
+
+-(CGFloat)driveRadiusMax
+{
+    return 2000;
+}
+
+-(CGFloat)driveRadiusStraight
+{
+    return 0x8000;
+}
+
+-(CGFloat)driveRadiusRotate
+{
+    return 1;
+}
 @end

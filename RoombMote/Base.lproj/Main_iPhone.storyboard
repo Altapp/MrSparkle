@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -8,42 +8,94 @@
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="RMViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kKJ-O6-Gzg"/>
-                        <viewControllerLayoutGuide type="bottom" id="9Op-xT-js2"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mM7-I0-kXu">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mM7-I0-kXu">
                                 <rect key="frame" x="20" y="20" width="280" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLg-VW-8ez">
-                                <rect key="frame" x="87" y="95" width="147" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lLg-VW-8ez">
+                                <rect key="frame" x="20" y="54" width="110" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start Vacuum"/>
                                 <connections>
-                                    <action selector="buttonPressVacuum:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="POg-2g-Vm6"/>
+                                    <action selector="vacuumButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GPX-vd-byN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Ep-gf-6dz">
+                                <rect key="frame" x="197" y="54" width="103" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Connect">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="connectButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8VK-1l-MjG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Snn-DO-Wkd">
+                                <rect key="frame" x="35" y="166" width="250" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button" image="dpad-off.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" image="dpad-off.png"/>
+                                <state key="selected" image="dpad-off.png"/>
+                                <state key="highlighted" image="dpad-off.png"/>
+                                <connections>
+                                    <action selector="driveControlTouchUpAction:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="BwJ-fq-id6"/>
+                                    <action selector="driveControlTouchUpAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="g5I-vE-HiN"/>
+                                    <outletCollection property="gestureRecognizers" destination="B9u-JO-cOw" appends="YES" id="jmY-nX-llj"/>
+                                </connections>
+                            </button>
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" id="742-Eu-4Af">
+                                <rect key="frame" x="-36" y="166" width="204" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="speedSliderChangedAction:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Ty8-Ts-QOS"/>
+                                    <action selector="speedSliderLetGoAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5Ov-Bj-gNc"/>
+                                    <action selector="speedSliderLetGoAction:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="K2P-QG-NaZ"/>
+                                </connections>
+                            </slider>
+                            <slider hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" id="TqW-g4-Tat">
+                                <rect key="frame" x="195" y="166" width="234" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="turnSliderChangedAction:" destination="vXZ-lx-hvc" eventType="valueChanged" id="2ms-Tb-cN4"/>
+                                    <action selector="turnSliderLetGoAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="q2P-iD-yuJ"/>
+                                    <action selector="turnSliderLetGoAction:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="uJF-sS-3ai"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="driveControl" destination="Snn-DO-Wkd" id="N7s-Fh-BIg"/>
+                        <outlet property="speedSlider" destination="742-Eu-4Af" id="sxM-Uy-2oN"/>
                         <outlet property="statusLabel" destination="mM7-I0-kXu" id="rGS-iH-GvG"/>
+                        <outlet property="turnSlider" destination="TqW-g4-Tat" id="nm6-7A-cFw"/>
                         <outlet property="vacuumButton" destination="lLg-VW-8ez" id="svx-bO-n2a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer cancelsTouchesInView="NO" allowableMovement="10" minimumPressDuration="0.10000000000000001" id="B9u-JO-cOw">
+                    <connections>
+                        <action selector="driveControlTouchDownAction:" destination="vXZ-lx-hvc" id="Pta-Qa-Qbk"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="339" y="167"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dpad-off.png" width="600" height="600"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

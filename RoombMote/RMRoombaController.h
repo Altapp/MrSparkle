@@ -28,6 +28,13 @@
 -(BOOL)RoombaIsConnected;
 
 -(BOOL)VacuumIsOn;
--(BOOL)toggleVacuumState;
+-(BOOL)sendVacuumOnCommand;
+-(BOOL)sendVacuumOffCommand;
+-(BOOL)sendDriveCommandwithVelocity:(CGFloat)velocityFloat radius:(CGFloat)radiusFloat;
+-(CGFloat)driveVelocityMax;
+-(CGFloat)driveVelocityStopped;
+-(CGFloat)driveRadiusMax;
+-(CGFloat)driveRadiusStraight;
+-(CGFloat)driveRadiusRotate;
 
 @end

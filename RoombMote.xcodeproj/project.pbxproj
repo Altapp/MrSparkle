@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34166885183E678600635142 /* roomba.png in Resources */ = {isa = PBXBuildFile; fileRef = 34166884183E678600635142 /* roomba.png */; };
 		34AD36B2183D71E3007880E1 /* WiFiDongleController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AD36B1183D71E3007880E1 /* WiFiDongleController.a */; };
 		34AD36B4183D72ED007880E1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AD36B3183D72ED007880E1 /* SystemConfiguration.framework */; };
+		34BA4C88184048E200021605 /* dpad-upleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4C7F184048E200021605 /* dpad-upleft.png */; };
+		34BA4C89184048E200021605 /* dpad-downleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4C80184048E200021605 /* dpad-downleft.png */; };
+		34BA4C8A184048E200021605 /* dpad-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4C81184048E200021605 /* dpad-left.png */; };
+		34BA4C8B184048E200021605 /* dpad-upright.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4C82184048E200021605 /* dpad-upright.png */; };
+		34BA4C8C184048E200021605 /* dpad-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4C83184048E200021605 /* dpad-right.png */; };
+		34BA4C8D184048E200021605 /* dpad-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4C84184048E200021605 /* dpad-off.png */; };
+		34BA4C8E184048E200021605 /* dpad-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4C85184048E200021605 /* dpad-up.png */; };
+		34BA4C8F184048E200021605 /* dpad-downright.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4C86184048E200021605 /* dpad-downright.png */; };
+		34BA4C90184048E200021605 /* dpad-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4C87184048E200021605 /* dpad-down.png */; };
 		34C7EA86183BDC3F004EB549 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA85183BDC3F004EB549 /* Foundation.framework */; };
 		34C7EA88183BDC3F004EB549 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA87183BDC3F004EB549 /* CoreGraphics.framework */; };
 		34C7EA8A183BDC3F004EB549 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA89183BDC3F004EB549 /* UIKit.framework */; };
@@ -16,7 +26,6 @@
 		34C7EA92183BDC3F004EB549 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EA91183BDC3F004EB549 /* main.m */; };
 		34C7EA96183BDC3F004EB549 /* RMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EA95183BDC3F004EB549 /* RMAppDelegate.m */; };
 		34C7EA99183BDC3F004EB549 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EA97183BDC3F004EB549 /* Main_iPhone.storyboard */; };
-		34C7EA9C183BDC3F004EB549 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EA9A183BDC3F004EB549 /* Main_iPad.storyboard */; };
 		34C7EA9F183BDC3F004EB549 /* RMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EA9E183BDC3F004EB549 /* RMViewController.m */; };
 		34C7EAA1183BDC40004EB549 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EAA0183BDC40004EB549 /* Images.xcassets */; };
 		34C7EAA8183BDC40004EB549 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EAA7183BDC40004EB549 /* XCTest.framework */; };
@@ -38,8 +47,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34166884183E678600635142 /* roomba.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roomba.png; sourceTree = "<group>"; };
 		34AD36B1183D71E3007880E1 /* WiFiDongleController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = WiFiDongleController.a; path = ../WiFiDongleController/Products/WiFiDongleController.a; sourceTree = "<group>"; };
 		34AD36B3183D72ED007880E1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		34BA4C7F184048E200021605 /* dpad-upleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpad-upleft.png"; sourceTree = "<group>"; };
+		34BA4C80184048E200021605 /* dpad-downleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpad-downleft.png"; sourceTree = "<group>"; };
+		34BA4C81184048E200021605 /* dpad-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpad-left.png"; sourceTree = "<group>"; };
+		34BA4C82184048E200021605 /* dpad-upright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpad-upright.png"; sourceTree = "<group>"; };
+		34BA4C83184048E200021605 /* dpad-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpad-right.png"; sourceTree = "<group>"; };
+		34BA4C84184048E200021605 /* dpad-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpad-off.png"; sourceTree = "<group>"; };
+		34BA4C85184048E200021605 /* dpad-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpad-up.png"; sourceTree = "<group>"; };
+		34BA4C86184048E200021605 /* dpad-downright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpad-downright.png"; sourceTree = "<group>"; };
+		34BA4C87184048E200021605 /* dpad-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpad-down.png"; sourceTree = "<group>"; };
 		34C7EA82183BDC3F004EB549 /* RoombMote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoombMote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34C7EA85183BDC3F004EB549 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		34C7EA87183BDC3F004EB549 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -51,7 +70,6 @@
 		34C7EA94183BDC3F004EB549 /* RMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMAppDelegate.h; sourceTree = "<group>"; };
 		34C7EA95183BDC3F004EB549 /* RMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMAppDelegate.m; sourceTree = "<group>"; };
 		34C7EA98183BDC3F004EB549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		34C7EA9B183BDC3F004EB549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		34C7EA9D183BDC3F004EB549 /* RMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMViewController.h; sourceTree = "<group>"; };
 		34C7EA9E183BDC3F004EB549 /* RMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMViewController.m; sourceTree = "<group>"; };
 		34C7EAA0183BDC40004EB549 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -128,7 +146,6 @@
 				34C7EA94183BDC3F004EB549 /* RMAppDelegate.h */,
 				34C7EA95183BDC3F004EB549 /* RMAppDelegate.m */,
 				34C7EA97183BDC3F004EB549 /* Main_iPhone.storyboard */,
-				34C7EA9A183BDC3F004EB549 /* Main_iPad.storyboard */,
 				34C7EA9D183BDC3F004EB549 /* RMViewController.h */,
 				34C7EA9E183BDC3F004EB549 /* RMViewController.m */,
 				34C7EAC0183BDD17004EB549 /* RMRoombaController.h */,
@@ -142,6 +159,16 @@
 		34C7EA8C183BDC3F004EB549 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				34BA4C7F184048E200021605 /* dpad-upleft.png */,
+				34BA4C80184048E200021605 /* dpad-downleft.png */,
+				34BA4C81184048E200021605 /* dpad-left.png */,
+				34BA4C82184048E200021605 /* dpad-upright.png */,
+				34BA4C83184048E200021605 /* dpad-right.png */,
+				34BA4C84184048E200021605 /* dpad-off.png */,
+				34BA4C85184048E200021605 /* dpad-up.png */,
+				34BA4C86184048E200021605 /* dpad-downright.png */,
+				34BA4C87184048E200021605 /* dpad-down.png */,
+				34166884183E678600635142 /* roomba.png */,
 				34C7EA8D183BDC3F004EB549 /* RoombMote-Info.plist */,
 				34C7EA8E183BDC3F004EB549 /* InfoPlist.strings */,
 				34C7EA91183BDC3F004EB549 /* main.m */,
@@ -245,9 +272,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34C7EA9C183BDC3F004EB549 /* Main_iPad.storyboard in Resources */,
+				34166885183E678600635142 /* roomba.png in Resources */,
+				34BA4C8A184048E200021605 /* dpad-left.png in Resources */,
+				34BA4C8B184048E200021605 /* dpad-upright.png in Resources */,
+				34BA4C88184048E200021605 /* dpad-upleft.png in Resources */,
+				34BA4C8C184048E200021605 /* dpad-right.png in Resources */,
 				34C7EAA1183BDC40004EB549 /* Images.xcassets in Resources */,
+				34BA4C89184048E200021605 /* dpad-downleft.png in Resources */,
 				34C7EA99183BDC3F004EB549 /* Main_iPhone.storyboard in Resources */,
+				34BA4C8E184048E200021605 /* dpad-up.png in Resources */,
+				34BA4C8D184048E200021605 /* dpad-off.png in Resources */,
+				34BA4C8F184048E200021605 /* dpad-downright.png in Resources */,
+				34BA4C90184048E200021605 /* dpad-down.png in Resources */,
 				34C7EA90183BDC3F004EB549 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,14 +343,6 @@
 				34C7EA98183BDC3F004EB549 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		34C7EA9A183BDC3F004EB549 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				34C7EA9B183BDC3F004EB549 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		34C7EAB0183BDC40004EB549 /* InfoPlist.strings */ = {
@@ -424,6 +452,7 @@
 					/Users/jesslatimer/Work/WiFiDongleController/Products,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -450,6 +479,7 @@
 					/Users/jesslatimer/Work/WiFiDongleController/Products,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
