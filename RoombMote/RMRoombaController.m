@@ -308,7 +308,8 @@ BOOL VacuumIsRunning = NO;
     buffer = malloc(2);
     
     buffer[0] = 0x8A;
-    buffer[1] = 0x02;
+    //buffer[1] = 0x02; //vacuum only
+    buffer[1] = 0x07; //vacuum and brushes
     
     NSMutableData *dataToSend = [[NSMutableData alloc] init];
     [dataToSend appendBytes:buffer length:2];

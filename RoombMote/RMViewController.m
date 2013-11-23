@@ -27,8 +27,6 @@
 @synthesize vacuumButton;
 @synthesize connectButton;
 @synthesize driveControl;
-@synthesize speedSlider;
-@synthesize turnSlider;
 
 
 - (void)viewDidLoad
@@ -38,10 +36,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    CGAffineTransform transformToVertical = CGAffineTransformMakeRotation(M_PI * 1.5);
-    self.speedSlider.transform = transformToVertical;
-    
-    self.statusLabel.text = @"Not Connected.";
+    [self.statusLabel setText:@"Not Connected."];
     
     roombaController = [[RMRoombaController alloc] init];
     [roombaController setDelegate:self];
@@ -62,21 +57,21 @@
 {
 	DLog(@"RMViewController roombaControllerDidStart");
     
-    self.statusLabel.text = @"Connected.";
+    [self.statusLabel setText:@"Connected."];
 }
 
 -(void)roombaControllerCantStart
 {
 	DLog(@"RMViewController roombaControllerCantStart");
     
-    self.statusLabel.text = @"Can't Connect.";
+    [self.statusLabel setText:@"Can't Connect."];
 }
 
 -(void)roombaControllerDidStop
 {
 	DLog(@"RMViewController roombaControllerDidStop");
     
-    self.statusLabel.text = @"Not Connected.";
+    [self.statusLabel setText:@"Not Connected."];
 }
 
 -(IBAction)connectButtonAction:(UIButton *)button
@@ -87,11 +82,13 @@
     {
         [roombaController stopRoombaController];
         [button setTitle:@"Connect" forState:UIControlStateNormal];
+        [self.statusLabel setText:@"Not Connected."];
     }
     else
     {
         [roombaController startRoombaController];
         [button setTitle:@"Disconnect" forState:UIControlStateNormal];
+        [self.statusLabel setText:@"Connecting..."];
     }
 }
 
@@ -129,40 +126,9 @@
     [self sendDriveCommandWithTouchLocation:CGPointMake(0, 0)];
 }
 
--(IBAction)speedSliderChangedAction:(id)sender
-{
-	DLog(@"RMViewController speedSliderChangedAction");
-    
-    [self sendDriveCommandWithSliderValues];
-}
-
--(IBAction)turnSliderChangedAction:(id)sender
-{
-	DLog(@"RMViewController turnSliderChangedAction");
-    
-    [self sendDriveCommandWithSliderValues];
-}
-
--(IBAction)speedSliderLetGoAction:(id)sender
-{
-	DLog(@"RMViewController speedSliderLetGoAction");
-    
-    [self.speedSlider setValue:0 animated:NO];
-    [self sendDriveCommandWithSliderValues];
-    
-}
-
--(IBAction)turnSliderLetGoAction:(id)sender
-{
-	DLog(@"RMViewController turnSliderLetGoAction");
-    
-    [self.turnSlider setValue:0 animated:NO];
-    [self sendDriveCommandWithSliderValues];
-}
-
 -(void)sendDriveCommandWithTouchLocation:(CGPoint)touchLocation
 {
-	DLog(@"RMViewController sendDriveCommandWithSliderValues");
+	DLog(@"RMViewController sendDriveCommandWithTouchLocation");
     
     CGFloat velocity = 0;
     CGFloat radius = 0;
@@ -208,42 +174,9 @@
     }
 }
 
--(void)sendDriveCommandWithSliderValues
-{
-	DLog(@"RMViewController sendDriveCommandWithSliderValues");
-    
-    if([roombaController RoombaIsConnected])
-    {
-        [roombaController sendDriveCommandwithVelocity:[self getVelocityFromSliderValue] radius:[self getRadiusFromSliderValue]];
-    }
-}
-
--(CGFloat)getVelocityFromSliderValue
-{
-    return self.speedSlider.value * [roombaController driveVelocityMax];
-}
-
--(CGFloat)getRadiusFromSliderValue
-{
-    CGFloat radius = 0;
-    
-    if(self.turnSlider.value == 0)
-        radius = [roombaController driveRadiusStraight]; //straight
-    else if(self.turnSlider.value == -1)
-        radius = [roombaController driveRadiusRotate]; //clockwise in place
-    else if(self.turnSlider.value == 1)
-        radius = -[roombaController driveRadiusRotate]; //counter-clockwise in place
-    else if(self.turnSlider.value < 0)
-        radius = roundf([roombaController driveRadiusMax] * (1 + self.turnSlider.value));
-    else if(self.turnSlider.value > 0)
-        radius = roundf([roombaController driveRadiusMax] * (-1 + self.turnSlider.value));
-    
-    return radius;
-}
-
 -(void)setDPadImageFromVelocity:(CGFloat)velocity radius:(CGFloat)radius
 {
-	DLog(@"RMViewController sendDriveCommandWithSliderValues");
+	DLog(@"RMViewController setDPadImageFromVelocity");
     
     if(velocity == [roombaController driveVelocityStopped] && radius == [roombaController driveRadiusStraight])
         [self.driveControl setImage:[UIImage imageNamed:@"dpad-off.png"] forState:UIControlStateHighlighted];

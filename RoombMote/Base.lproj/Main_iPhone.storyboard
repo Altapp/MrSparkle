@@ -52,24 +52,6 @@
                                     <outletCollection property="gestureRecognizers" destination="B9u-JO-cOw" appends="YES" id="jmY-nX-llj"/>
                                 </connections>
                             </button>
-                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" id="742-Eu-4Af">
-                                <rect key="frame" x="-36" y="166" width="204" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="speedSliderChangedAction:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Ty8-Ts-QOS"/>
-                                    <action selector="speedSliderLetGoAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5Ov-Bj-gNc"/>
-                                    <action selector="speedSliderLetGoAction:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="K2P-QG-NaZ"/>
-                                </connections>
-                            </slider>
-                            <slider hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" id="TqW-g4-Tat">
-                                <rect key="frame" x="195" y="166" width="234" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="turnSliderChangedAction:" destination="vXZ-lx-hvc" eventType="valueChanged" id="2ms-Tb-cN4"/>
-                                    <action selector="turnSliderLetGoAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="q2P-iD-yuJ"/>
-                                    <action selector="turnSliderLetGoAction:" destination="vXZ-lx-hvc" eventType="touchUpOutside" id="uJF-sS-3ai"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -77,9 +59,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="driveControl" destination="Snn-DO-Wkd" id="N7s-Fh-BIg"/>
-                        <outlet property="speedSlider" destination="742-Eu-4Af" id="sxM-Uy-2oN"/>
                         <outlet property="statusLabel" destination="mM7-I0-kXu" id="rGS-iH-GvG"/>
-                        <outlet property="turnSlider" destination="TqW-g4-Tat" id="nm6-7A-cFw"/>
                         <outlet property="vacuumButton" destination="lLg-VW-8ez" id="svx-bO-n2a"/>
                     </connections>
                 </viewController>
