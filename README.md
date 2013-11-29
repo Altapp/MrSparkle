@@ -12,5 +12,5 @@ Required Parts:
  - A standard 7-pin Male/Male Mini-DIN cable
 
 This App depends on the following static libraries:
-http://github.com/manybothans/WiFiDongleController
-http://github.com/manybothans/RoombaController
+ - http://github.com/manybothans/WiFiDongleController
+ - http://github.com/manybothans/RoombaController
