@@ -51,6 +51,10 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="roomba.png" id="eqR-Gf-o1R">
+                                <rect key="frame" x="20" y="48" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92941182851791382" green="0.92941182851791382" blue="0.92941182851791382" alpha="1" colorSpace="deviceRGB"/>
                     </view>
@@ -59,12 +63,13 @@
                     <connections>
                         <outlet property="connectButton" destination="xNR-Y0-U0c" id="Wva-5f-Feg"/>
                         <outlet property="driveControl" destination="Snn-DO-Wkd" id="N7s-Fh-BIg"/>
+                        <outlet property="roombaImage" destination="eqR-Gf-o1R" id="K3y-Ap-KUD"/>
                         <outlet property="statusLabel" destination="mM7-I0-kXu" id="rGS-iH-GvG"/>
                         <outlet property="vacuumButton" destination="3uX-Su-NaU" id="ISU-sg-eXT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer cancelsTouchesInView="NO" allowableMovement="10" minimumPressDuration="0.10000000000000001" id="B9u-JO-cOw">
+                <pongPressGestureRecognizer cancelsTouchesInView="NO" allowableMovement="10" minimumPressDuration="0.0" id="B9u-JO-cOw">
                     <connections>
                         <action selector="driveControlTouchDownAction:" destination="vXZ-lx-hvc" id="Pta-Qa-Qbk"/>
                     </connections>
@@ -75,6 +80,7 @@
     </scenes>
     <resources>
         <image name="dpad-off.png" width="600" height="600"/>
+        <image name="roomba.png" width="810" height="810"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

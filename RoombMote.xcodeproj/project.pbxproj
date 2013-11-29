@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34AD36B2183D71E3007880E1 /* WiFiDongleController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AD36B1183D71E3007880E1 /* WiFiDongleController.a */; };
 		34AD36B4183D72ED007880E1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AD36B3183D72ED007880E1 /* SystemConfiguration.framework */; };
 		34BA4C9B18405B4700021605 /* dpad-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4C9218405B4700021605 /* dpad-down.png */; };
 		34BA4C9C18405B4700021605 /* dpad-upright.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4C9318405B4700021605 /* dpad-upright.png */; };
@@ -20,6 +19,7 @@
 		34BA4CA318405B4700021605 /* dpad-upleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4C9A18405B4700021605 /* dpad-upleft.png */; };
 		34BA4CA518405C7A00021605 /* roomba.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BA4CA418405C7A00021605 /* roomba.png */; };
 		34BA4CE81840A11000021605 /* RoombaController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BA4CE71840A11000021605 /* RoombaController.a */; };
+		34BA4D361841511F00021605 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BA4D351841511F00021605 /* AudioToolbox.framework */; };
 		34C7EA86183BDC3F004EB549 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA85183BDC3F004EB549 /* Foundation.framework */; };
 		34C7EA88183BDC3F004EB549 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA87183BDC3F004EB549 /* CoreGraphics.framework */; };
 		34C7EA8A183BDC3F004EB549 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA89183BDC3F004EB549 /* UIKit.framework */; };
@@ -47,7 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		34AD36B1183D71E3007880E1 /* WiFiDongleController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = WiFiDongleController.a; path = ../WiFiDongleController/Products/WiFiDongleController.a; sourceTree = "<group>"; };
 		34AD36B3183D72ED007880E1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		34BA4C9218405B4700021605 /* dpad-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpad-down.png"; sourceTree = "<group>"; };
 		34BA4C9318405B4700021605 /* dpad-upright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpad-upright.png"; sourceTree = "<group>"; };
@@ -60,6 +59,7 @@
 		34BA4C9A18405B4700021605 /* dpad-upleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpad-upleft.png"; sourceTree = "<group>"; };
 		34BA4CA418405C7A00021605 /* roomba.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roomba.png; sourceTree = "<group>"; };
 		34BA4CE71840A11000021605 /* RoombaController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = RoombaController.a; path = ../RoombaController/Products/RoombaController.a; sourceTree = "<group>"; };
+		34BA4D351841511F00021605 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		34C7EA82183BDC3F004EB549 /* RoombMote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoombMote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34C7EA85183BDC3F004EB549 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		34C7EA87183BDC3F004EB549 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -86,8 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34BA4D361841511F00021605 /* AudioToolbox.framework in Frameworks */,
 				34BA4CE81840A11000021605 /* RoombaController.a in Frameworks */,
-				34AD36B2183D71E3007880E1 /* WiFiDongleController.a in Frameworks */,
 				34AD36B4183D72ED007880E1 /* SystemConfiguration.framework in Frameworks */,
 				34C7EA88183BDC3F004EB549 /* CoreGraphics.framework in Frameworks */,
 				34C7EA8A183BDC3F004EB549 /* UIKit.framework in Frameworks */,
@@ -130,9 +130,9 @@
 		34C7EA84183BDC3F004EB549 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34BA4D351841511F00021605 /* AudioToolbox.framework */,
 				34BA4CE71840A11000021605 /* RoombaController.a */,
 				34AD36B3183D72ED007880E1 /* SystemConfiguration.framework */,
-				34AD36B1183D71E3007880E1 /* WiFiDongleController.a */,
 				34C7EA85183BDC3F004EB549 /* Foundation.framework */,
 				34C7EA87183BDC3F004EB549 /* CoreGraphics.framework */,
 				34C7EA89183BDC3F004EB549 /* UIKit.framework */,
@@ -433,6 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/jesslatimer/Work/WiFiDongleController/Products,
@@ -443,7 +444,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/Users/jesslatimer/Work/RoombaController/Products/include,
-					/Users/jesslatimer/Work/WiFiDongleController/Products/include,
+					/Users/jesslatimer/Work/WiFiDongleController/trunk/Products/include,
 				);
 				INFOPLIST_FILE = "RoombMote/RoombMote-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -462,6 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/jesslatimer/Work/WiFiDongleController/Products,
@@ -472,7 +474,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/Users/jesslatimer/Work/RoombaController/Products/include,
-					/Users/jesslatimer/Work/WiFiDongleController/Products/include,
+					/Users/jesslatimer/Work/WiFiDongleController/trunk/Products/include,
 				);
 				INFOPLIST_FILE = "RoombMote/RoombMote-Info.plist";
 				LIBRARY_SEARCH_PATHS = (

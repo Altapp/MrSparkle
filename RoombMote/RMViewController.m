@@ -11,17 +11,12 @@
 @interface RMViewController ()
 {
     RoombaController *roombaController;
+    
+    CGFloat currentRoombaAngle;
 }
 
 @property (nonatomic, retain) RoombaController *roombaController;
 
--(void)roombaControllerDidStart;
--(void)roombaControllerCantStart;
--(void)roombaControllerDidStop;
--(CGFloat)getDriveRadiusFromTouchX:(CGFloat)touchX;
--(CGFloat)getDriveVelocityFromTouchY:(CGFloat)touchY;
--(void)setDPadTouchImage:(NSString *)imageName;
--(BOOL)isNegative:(CGFloat)number;
 @end
 
 @implementation RMViewController
@@ -31,7 +26,16 @@
 @synthesize vacuumButton;
 @synthesize connectButton;
 @synthesize driveControl;
+@synthesize roombaImage;
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -40,10 +44,23 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(appEnteredBackground) name: @"didEnterBackground" object: nil];
+    
     [self.statusLabel setText:@"Not Connected."];
     
     roombaController = [[RoombaController alloc] init];
     [roombaController setDelegate:self];
+    
+    currentRoombaAngle = 0;
+}
+
+- (void)appEnteredBackground
+{
+	DLog(@"RMViewController appEnteredBackground");
+    
+    [roombaController stopRoombaController];
+    [self.statusLabel setText:@"Not Connected."];
+    [self.connectButton setTitle:@"Connect"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +68,6 @@
 	DLog(@"RMViewController didReceiveMemoryWarning");
     
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -82,7 +98,7 @@
 {
 	DLog(@"RMViewController vacuumButtonAction");
     
-    if([roombaController RoombaIsConnected])
+    if([button.title isEqualToString:@"Disconnect"])
     {
         [self.statusLabel setText:@"Not Connected."];
         [button setTitle:@"Connect"];
@@ -100,9 +116,9 @@
 {
 	DLog(@"RMViewController vacuumButtonAction");
     
-    if([roombaController RoombaIsConnected])
+    if([roombaController.ControllerIsRunning boolValue])
     {
-        if([roombaController VacuumIsOn])
+        if([roombaController.VacuumIsRunning boolValue])
         {
             [button setTitle:@"Start Vacuum"];
             [roombaController sendVacuumOffCommand];
@@ -121,7 +137,6 @@
 
     CGPoint location = [recognizer locationInView:self.driveControl];
     CGPoint locationTransposedToCenterOrigin = CGPointMake(-location.x+TOUCHPAD_HALFSIZE, -location.y+TOUCHPAD_HALFSIZE);
-    
     [self sendDriveCommandWithTouchLocation:locationTransposedToCenterOrigin];
 }
 
@@ -137,118 +152,129 @@
 {
 	DLog(@"RMViewController sendDriveCommandWithTouchLocation");
     
-    CGFloat radius = [self getDriveRadiusFromTouchX:touchLocation.x];
-    CGFloat velocity = [self getDriveVelocityFromTouchY:touchLocation.y];
+    NSInteger radius = [self getDriveRadiusFromTouchLocation:touchLocation];
+    NSInteger velocity = [self getDriveVelocityFromTouchLocation:touchLocation];
     
-    [self setDPadImageFromVelocity:velocity radius:radius];
+    [self setDPadImageFromTouchLocation:touchLocation];
     
-    //if pressing left or right, but not up or down, turn slowly in place
-    if(velocity == ROOMB_VELOCITY_STOPPED && radius != ROOMB_RADIUS_STRAIGT)
-    {
-        velocity = STATIONARY_SPIN_SPEEN;
-        
-        if([self isNegative:radius])
-            radius = -ROOMB_RADIUS_SPIN;
-        else
-            radius = ROOMB_RADIUS_SPIN;
-    }
-    
-    if([roombaController RoombaIsConnected])
-    {
+    if([roombaController.ControllerIsRunning boolValue])
         [roombaController sendDriveCommandwithVelocity:velocity radius:radius];
-    }
 }
 
--(CGFloat)getDriveRadiusFromTouchX:(CGFloat)touchX
+-(NSInteger)getDriveRadiusFromTouchLocation:(CGPoint)touchLocation;
 {
-    CGFloat radius = 0;
+    NSInteger radius = 0;
     CGFloat factor = 0;
+    CGFloat sign = 1;
     
-    if(touchX > -STOP_ZONE_RADIUS && touchX < STOP_ZONE_RADIUS)
+    if(IS_NEGATIVE(touchLocation.x))
+        sign = -1;
+    
+    if([self isInStopZone:touchLocation.x])
         radius = ROOMB_RADIUS_STRAIGT;
-    else if(touchX < -ROTATE_ZONE_STARTPOINT)
-        radius = -ROOMB_RADIUS_SPIN;
-    else if(touchX > ROTATE_ZONE_STARTPOINT)
-        radius = ROOMB_RADIUS_SPIN;
-    else if(touchX > TOUCHPAD_ORIGIN)
+    else if([self isInRotateZone:touchLocation.x])
+        radius = (NSInteger)(sign * ROOMB_RADIUS_SPIN);
+    else
     {
-        factor = 1 - ((touchX - STOP_ZONE_RADIUS)/(ROTATE_ZONE_STARTPOINT-STOP_ZONE_RADIUS));
-        radius = roundf(ROOMB_RADIUS_MAX * factor);
+        factor = (sign * 1) - ((touchLocation.x - (sign * STOP_ZONE_RADIUS))/(ROTATE_ZONE_STARTPOINT-STOP_ZONE_RADIUS));
+        radius = (NSInteger)roundf(ROOMB_RADIUS_MAX * factor);
     }
-    else if(touchX < TOUCHPAD_ORIGIN)
-    {
-        factor = -1 - ((touchX + STOP_ZONE_RADIUS)/(ROTATE_ZONE_STARTPOINT-STOP_ZONE_RADIUS));
-        radius = roundf(ROOMB_RADIUS_MAX * factor);
-    }
+
+    //if pressing left or right, but not up or down, turn slowly in place
+    if([self isInStopZone:touchLocation.y] && ![self isInStopZone:touchLocation.x])
+        radius = (NSInteger)(sign * ROOMB_RADIUS_SPIN);
     
     return radius;
 }
 
--(CGFloat)getDriveVelocityFromTouchY:(CGFloat)touchY
+-(NSInteger)getDriveVelocityFromTouchLocation:(CGPoint)touchLocation;
 {
-    CGFloat velocity = 0;
+    NSInteger velocity = 0;
     CGFloat factor = 0;
+    CGFloat sign = 1;
     
-    if(touchY > -STOP_ZONE_RADIUS && touchY < STOP_ZONE_RADIUS)
+    if(IS_NEGATIVE(touchLocation.y))
+        sign = -1;
+    
+    if([self isInStopZone:touchLocation.y])
         velocity = ROOMB_VELOCITY_STOPPED;
-    else if(touchY < -ROTATE_ZONE_STARTPOINT)
-        velocity = -ROOMB_VELOCITY_MAX;
-    else if(touchY > ROTATE_ZONE_STARTPOINT)
-        velocity = ROOMB_VELOCITY_MAX;
-    else if(touchY > TOUCHPAD_ORIGIN)
+    else if([self isInMaxVelocityZone:touchLocation.y])
+        velocity = (NSInteger)(sign * ROOMB_VELOCITY_MAX);
+    else
     {
-        factor = (touchY - STOP_ZONE_RADIUS)/(ROTATE_ZONE_STARTPOINT-STOP_ZONE_RADIUS);
-        velocity = roundf(ROOMB_VELOCITY_MAX * factor);
+        factor = (touchLocation.y - (sign * STOP_ZONE_RADIUS))/(MAX_VELOCITY_ZONE_STARTPOINT-STOP_ZONE_RADIUS);
+        velocity = (NSInteger)roundf(ROOMB_VELOCITY_MAX * factor);
     }
-    else if(touchY < TOUCHPAD_ORIGIN)
-    {
-        factor = (touchY + STOP_ZONE_RADIUS)/(ROTATE_ZONE_STARTPOINT-STOP_ZONE_RADIUS);
-        velocity = roundf(ROOMB_VELOCITY_MAX * factor);
-    }
+    
+    //if pressing left or right, but not up or down, turn slowly in place
+    if([self isInStopZone:touchLocation.y] && ![self isInStopZone:touchLocation.x])
+        velocity = STATIONARY_SPIN_SPEEN;
     
     return velocity;
 }
 
--(void)setDPadImageFromVelocity:(CGFloat)velocity radius:(CGFloat)radius
+-(void)setDPadImageFromTouchLocation:(CGPoint)touchLocation
 {
-	DLog(@"RMViewController setDPadImageFromVelocity");
+	//DLog(@"RMViewController setDPadImageFromTouchLocation");
     
-    if(velocity == ROOMB_VELOCITY_STOPPED && radius == ROOMB_RADIUS_STRAIGT)
-        [self setDPadTouchImage:@"dpad-off.png"];
-    else if(velocity == ROOMB_VELOCITY_STOPPED && radius != ROOMB_RADIUS_STRAIGT)
+    NSString *horizontalImageCode = @"";
+    NSString *verticalImageCode = @"";
+    
+    if([self isInStopZone:touchLocation.x])
+        horizontalImageCode = @"";
+    else if(IS_NEGATIVE(touchLocation.x))
+        horizontalImageCode = @"right";
+    else
+        horizontalImageCode = @"left";
+    
+    if([self isInStopZone:touchLocation.y])
+        verticalImageCode = @"";
+    else if(IS_NEGATIVE(touchLocation.y))
+        verticalImageCode = @"down";
+    else
+        verticalImageCode = @"up";
+    
+    //no code set, so set "off" code
+    if([horizontalImageCode isEqualToString:verticalImageCode])
     {
-        if([self isNegative:radius])
-            [self setDPadTouchImage:@"dpad-right.png"];
-        else
-            [self setDPadTouchImage:@"dpad-left.png"];
+        verticalImageCode = @"off";
+        horizontalImageCode = @"";
     }
-    else if(velocity > ROOMB_VELOCITY_STOPPED && radius == ROOMB_RADIUS_STRAIGT)
-        [self setDPadTouchImage:@"dpad-up.png"];
-    else if(velocity > ROOMB_VELOCITY_STOPPED && radius != ROOMB_RADIUS_STRAIGT)
-    {
-        if([self isNegative:radius])
-            [self setDPadTouchImage:@"dpad-upright.png"];
-        else
-            [self setDPadTouchImage:@"dpad-upleft.png"];
-    }
-    else if(velocity < ROOMB_VELOCITY_STOPPED && radius == ROOMB_RADIUS_STRAIGT)
-        [self setDPadTouchImage:@"dpad-down.png"];
-    else if(velocity < ROOMB_VELOCITY_STOPPED && radius != ROOMB_RADIUS_STRAIGT)
-    {
-        if([self isNegative:radius])
-            [self setDPadTouchImage:@"dpad-downright.png"];
-        else
-            [self setDPadTouchImage:@"dpad-downleft.png"];
-    }
-}
-
--(void)setDPadTouchImage:(NSString *)imageName
-{
+    
+    NSString *imageName = [NSString stringWithFormat:@"dpad-%@%@.png",verticalImageCode,horizontalImageCode];
     [self.driveControl setImage:[UIImage imageNamed:imageName] forState:UIControlStateHighlighted];
 }
 
--(BOOL)isNegative:(CGFloat)number
+-(BOOL)isInStopZone:(CGFloat)axisPoint
 {
-    return number < 0;
+    return (axisPoint > -STOP_ZONE_RADIUS && axisPoint < STOP_ZONE_RADIUS);
 }
+
+-(BOOL)isInMaxVelocityZone:(CGFloat)axisPoint
+{
+    return (axisPoint < -MAX_VELOCITY_ZONE_STARTPOINT || axisPoint > MAX_VELOCITY_ZONE_STARTPOINT);
+}
+
+-(BOOL)isInRotateZone:(CGFloat)axisPoint
+{
+    return (axisPoint < -ROTATE_ZONE_STARTPOINT || axisPoint > ROTATE_ZONE_STARTPOINT);
+}
+
+-(void)handleRoombaBumbEvent
+{
+	DLog(@"RMViewController handleRoombaBumbEvent");
+    
+    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+}
+
+-(void)handleRoombaMovementDistance:(NSNumber *)distanceMM angle:(NSNumber *)angleRadians
+{
+	DLog(@"RMViewController handleRoombaMovementDistance %f",[angleRadians floatValue]);
+    
+    currentRoombaAngle = currentRoombaAngle-[angleRadians floatValue];
+    
+    CGAffineTransform rotateTransform = CGAffineTransformMakeRotation(currentRoombaAngle);
+    self.roombaImage.transform = rotateTransform;
+}
+
 @end
