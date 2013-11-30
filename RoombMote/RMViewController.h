@@ -47,6 +47,7 @@
     IBOutlet UILabel *statusLabel;
     IBOutlet UIBarButtonItem *vacuumButton;
     IBOutlet UIBarButtonItem *connectButton;
+    IBOutlet UIBarButtonItem *controlButton;
     IBOutlet UIButton *driveControl;
     IBOutlet UIImageView *roombaImage;
 }
@@ -54,6 +55,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *statusLabel;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *vacuumButton;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *connectButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *controlButton;
 @property (nonatomic, retain) IBOutlet UIButton *driveControl;
 @property (nonatomic, retain) IBOutlet UIImageView *roombaImage;
 
@@ -67,6 +69,7 @@
 //Buttons
 -(IBAction)connectButtonAction:(UIBarButtonItem *)button;
 -(IBAction)vacuumButtonAction:(UIBarButtonItem *)button;
+-(IBAction)controlButtonAction:(UIBarButtonItem *)button;
 
 //Drive Control
 -(IBAction)driveControlTouchDownAction:(UILongPressGestureRecognizer *)recognizer;

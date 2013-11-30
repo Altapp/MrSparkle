@@ -46,6 +46,7 @@
 @synthesize statusLabel;
 @synthesize vacuumButton;
 @synthesize connectButton;
+@synthesize controlButton;
 @synthesize driveControl;
 @synthesize roombaImage;
 
@@ -150,6 +151,11 @@
             [roombaController sendVacuumOnCommand];
         }
     }
+}
+
+-(IBAction)controlButtonAction:(UIBarButtonItem *)button
+{
+    [roombaController forceDockSeeking];
 }
 
 -(IBAction)driveControlTouchDownAction:(UILongPressGestureRecognizer *)recognizer

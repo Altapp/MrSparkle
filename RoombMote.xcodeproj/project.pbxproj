@@ -504,6 +504,12 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/Users/jesslatimer/Work/RoombaController/Products/include,
+					/Users/jesslatimer/Work/WiFiDongleController/trunk/Products/include,
+				);
 				INFOPLIST_FILE = "RoombMoteTests/RoombMoteTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -523,6 +529,12 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RoombMote/RoombMote-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/Users/jesslatimer/Work/RoombaController/Products/include,
+					/Users/jesslatimer/Work/WiFiDongleController/trunk/Products/include,
+				);
 				INFOPLIST_FILE = "RoombMoteTests/RoombMoteTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";

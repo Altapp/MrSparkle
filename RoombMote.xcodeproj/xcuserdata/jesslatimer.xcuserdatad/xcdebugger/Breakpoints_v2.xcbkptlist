@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RoombMote/RMViewController.m"
-            timestampString = "407446895.300869"
+            timestampString = "407457015.680481"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298">
+            startingLineNumber = "324"
+            endingLineNumber = "324">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

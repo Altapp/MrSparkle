@@ -28,8 +28,10 @@
 
 
 #import "RMAppDelegate.h"
+#import "RMViewController.h"
 
 @implementation RMAppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

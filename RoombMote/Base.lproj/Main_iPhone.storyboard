@@ -44,6 +44,12 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="sUw-hc-P38"/>
+                                    <barButtonItem title="Dock" id="Ueb-7t-sM9">
+                                        <connections>
+                                            <action selector="controlButtonAction:" destination="vXZ-lx-hvc" id="jT8-QS-arK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="uft-bf-PPb"/>
                                     <barButtonItem title="Connect" id="xNR-Y0-U0c">
                                         <connections>
                                             <action selector="connectButtonAction:" destination="vXZ-lx-hvc" id="3pn-L8-4pQ"/>
@@ -62,6 +68,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="connectButton" destination="xNR-Y0-U0c" id="Wva-5f-Feg"/>
+                        <outlet property="controlButton" destination="Ueb-7t-sM9" id="hoy-Oh-RNt"/>
                         <outlet property="driveControl" destination="Snn-DO-Wkd" id="N7s-Fh-BIg"/>
                         <outlet property="roombaImage" destination="eqR-Gf-o1R" id="K3y-Ap-KUD"/>
                         <outlet property="statusLabel" destination="mM7-I0-kXu" id="rGS-iH-GvG"/>
