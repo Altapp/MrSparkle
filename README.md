@@ -7,7 +7,7 @@ Just join the Ad-Hoc WiFi network created by the WiFi Dongle in your iPhone's Se
 
 Required Parts:
  - Roomba Vacuum with SCI Port
- - WiFi-to-RS232 Dongle (http://serialio.com/products/wifi/wisnap-dongles/wisnap-aaa-wifi-dongle)
+ - WiFi-to-RS232 Dongle (http://serialio.com/products/wifi/wisnap-dongles/wisnap-standard-male)
  - Roo232 Roomba to Serial RS232 Bridge (http://www.protechrobotics.com/proddetail.php?prod=DEV-00740)
  - A standard 7-pin Male/Male Mini-DIN cable
 

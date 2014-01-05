@@ -32,23 +32,40 @@
 @interface RMViewController ()
 {
     RoombaController *roombaController;
-    
-    CGFloat currentRoombaAngle;
+    NSUInteger batteryLevel;
+    NSTimer *bumpTimer;
 }
 
 @property (nonatomic, retain) RoombaController *roombaController;
+@property (nonatomic, retain) NSTimer *bumpTimer;
 
+-(void)connectToRoomba;
+-(void)disconnectFromRoomba;
+-(void)hideBumpView;
+-(void)showBumpView;
+-(void)showStopButtonHideOthers;
+-(void)hideStopButtonShowOthers;
+-(void)enableControlButtons;
+-(void)disableControlButtons;
 @end
 
 @implementation RMViewController
 
 @synthesize roombaController;
-@synthesize statusLabel;
+@synthesize joystickView;
+@synthesize bumpView;
+@synthesize bumpTimer;
+@synthesize searchingView;
+@synthesize searchingButton;
 @synthesize vacuumButton;
-@synthesize connectButton;
-@synthesize controlButton;
-@synthesize driveControl;
-@synthesize roombaImage;
+@synthesize batteryIcon;
+@synthesize outerCircle;
+@synthesize innerCircle;
+@synthesize dockButton;
+@synthesize spotButton;
+@synthesize cleanButton;
+@synthesize maxButton;
+@synthesize stopButton;
 
 - (id)init
 {
@@ -66,23 +83,44 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(appEnteredBackground) name: @"didEnterBackground" object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(connectToRoomba)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
     
-    [self.statusLabel setText:@"Not Connected."];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(disconnectFromRoomba)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleRoombaBatteryPercent:)
+                                                 name:@"RoombaDidReturnBatteryPercentage"
+                                               object:nil];
+    
     
     roombaController = [[RoombaController alloc] init];
     [roombaController setDelegate:self];
     
-    currentRoombaAngle = 0;
+    batteryLevel = 10;
 }
 
-- (void)appEnteredBackground
+- (void)connectToRoomba
+{
+	DLog(@"RMViewController appEnteredForeground");
+    
+    [self hideStopButtonShowOthers];
+    [self disableControlButtons];
+    [self.searchingButton setEnabled:NO];
+    [self.searchingView setHidden:NO];
+    [roombaController startRoombaController];
+}
+
+- (void)disconnectFromRoomba
 {
 	DLog(@"RMViewController appEnteredBackground");
     
     [roombaController stopRoombaController];
-    [self.statusLabel setText:@"Not Connected."];
-    [self.connectButton setTitle:@"Connect"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,43 +136,23 @@
 -(void)roombaControllerDidStart
 {
 	DLog(@"RMViewController roombaControllerDidStart");
-    
-    [self.statusLabel setText:@"Connected."];
+    [self.searchingView setHidden:YES];
+    [self enableControlButtons];
 }
 
 -(void)roombaControllerCantStart
 {
 	DLog(@"RMViewController roombaControllerCantStart");
-    
-    [self.statusLabel setText:@"Can't Connect."];
+    [self.searchingView setHidden:NO];
+    [self.searchingButton setEnabled:YES];
 }
 
 -(void)roombaControllerDidStop
 {
 	DLog(@"RMViewController roombaControllerDidStop");
-    
-    [self.statusLabel setText:@"Not Connected."];
 }
 
--(IBAction)connectButtonAction:(UIBarButtonItem *)button
-{
-	DLog(@"RMViewController vacuumButtonAction");
-    
-    if([button.title isEqualToString:@"Disconnect"])
-    {
-        [self.statusLabel setText:@"Not Connected."];
-        [button setTitle:@"Connect"];
-        [roombaController stopRoombaController];
-    }
-    else
-    {
-        [self.statusLabel setText:@"Connecting..."];
-        [button setTitle:@"Disconnect"];
-        [roombaController startRoombaController];
-    }
-}
-
--(IBAction)vacuumButtonAction:(UIBarButtonItem *)button
+-(IBAction)vacuumButtonAction:(UIButton *)button
 {
 	DLog(@"RMViewController vacuumButtonAction");
     
@@ -142,37 +160,152 @@
     {
         if([roombaController.VacuumIsRunning boolValue])
         {
-            [button setTitle:@"Start Vacuum"];
+            [button setSelected:NO];
             [roombaController sendVacuumOffCommand];
         }
         else
         {
-            [button setTitle:@"Stop Vacuum"];
+            [button setSelected:YES];
             [roombaController sendVacuumOnCommand];
         }
     }
 }
 
--(IBAction)controlButtonAction:(UIBarButtonItem *)button
+-(IBAction)searchButtonAction:(UIButton *)button
+{
+    [self connectToRoomba];
+}
+
+-(IBAction)dockButtonAction:(UIButton *)button
 {
     [roombaController forceDockSeeking];
+    [self showStopButtonHideOthers];
 }
 
--(IBAction)driveControlTouchDownAction:(UILongPressGestureRecognizer *)recognizer
+-(IBAction)spotButtonAction:(UIButton *)button
 {
-	//DLog(@"RMViewController touchPadAction");
-
-    CGPoint location = [recognizer locationInView:self.driveControl];
-    CGPoint locationTransposedToCenterOrigin = CGPointMake(-location.x+TOUCHPAD_HALFSIZE, -location.y+TOUCHPAD_HALFSIZE);
-    [self sendDriveCommandWithTouchLocation:locationTransposedToCenterOrigin];
+    [roombaController sendSpotCommand];
+    [self showStopButtonHideOthers];
 }
 
--(IBAction)driveControlTouchUpAction:(id)sender
+-(IBAction)cleanButtonAction:(UIButton *)button
 {
-	DLog(@"RMViewController driveControlTouchUpAction");
+    [roombaController sendCleanCommand];
+    [self showStopButtonHideOthers];
+}
+
+-(IBAction)maxButtonAction:(UIButton *)button
+{
+    [roombaController sendMaxCommand];
+    [self showStopButtonHideOthers];
+}
+
+-(IBAction)stopButtonAction:(UIButton *)button
+{
+    [roombaController returnToFullControlMode];
+    [self hideStopButtonShowOthers];
+}
+
+-(void)showStopButtonHideOthers
+{
+    [self.dockButton setHidden:YES];
+    [self.spotButton setHidden:YES];
+    [self.cleanButton setHidden:YES];
+    [self.maxButton setHidden:YES];
+    [self disableControlButtons];
     
-    CGPoint driveControlStoppedPosition = CGPointMake(0, 0);
-    [self sendDriveCommandWithTouchLocation:driveControlStoppedPosition];
+    [self.stopButton setEnabled:YES];
+    [self.stopButton setHidden:NO];
+}
+
+-(void)hideStopButtonShowOthers
+{
+    [self.dockButton setHidden:NO];
+    [self.spotButton setHidden:NO];
+    [self.cleanButton setHidden:NO];
+    [self.maxButton setHidden:NO];
+    [self enableControlButtons];
+    
+    [self.stopButton setEnabled:NO];
+    [self.stopButton setHidden:YES];
+}
+
+-(void)enableControlButtons
+{
+    [self.dockButton setEnabled:YES];
+    [self.spotButton setEnabled:YES];
+    [self.cleanButton setEnabled:YES];
+    [self.maxButton setEnabled:YES];
+}
+
+-(void)disableControlButtons
+{
+    [self.dockButton setEnabled:NO];
+    [self.spotButton setEnabled:NO];
+    [self.cleanButton setEnabled:NO];
+    [self.maxButton setEnabled:NO];
+}
+
+-(IBAction)joystickTouchDownAction:(UILongPressGestureRecognizer *)recognizer
+{
+	//DLog(@"RMViewController joystickTouchDownAction");
+    
+    CGPoint jslocation = [recognizer locationInView:self.joystickView];
+    CGPoint drivelocation = [recognizer locationInView:self.outerCircle];
+    CGPoint drivelocationTransposedToCenterOrigin = CGPointMake(-drivelocation.x+kTouchpadHalfSize, -drivelocation.y+kTouchpadHalfSize);
+    
+    [self moveJoystick:jslocation];
+    [self sendDriveCommandWithTouchLocation:drivelocationTransposedToCenterOrigin];
+}
+
+-(IBAction)joystickTouchUpAction:(id)sender
+{
+	DLog(@"RMViewController joystickTouchUpAction");
+    
+    CGPoint joystickStoppedPosition = CGPointMake(self.outerCircle.center.x, self.outerCircle.center.y);
+    
+    
+    [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+           self.innerCircle.center = joystickStoppedPosition;
+    } completion:NULL];
+    
+    
+    [self sendDriveCommandWithTouchLocation:CGPointMake(0, 0)];
+}
+
+-(void)moveJoystick:(CGPoint)newLocation
+{
+    CGFloat differenceX;
+    CGFloat differenceY;
+    CGFloat outerCircleOriginX = self.outerCircle.center.x;
+    CGFloat outerCircleOriginY = self.outerCircle.center.y;
+    
+    if(outerCircleOriginX >= newLocation.x)
+        differenceX = outerCircleOriginX - newLocation.x;
+    else
+        differenceX = newLocation.x - outerCircleOriginX;
+    
+    if(outerCircleOriginY >= newLocation.y)
+        differenceY = outerCircleOriginY - newLocation.y;
+    else
+        differenceY = newLocation.y - outerCircleOriginY;
+    
+    if(hypotf(differenceX, differenceY) > 110)
+    {
+        CGFloat angle = atanf(differenceY/differenceX);
+        
+        if(outerCircleOriginX >= newLocation.x)
+            newLocation.x = outerCircleOriginX - 110 * cosf(angle);
+        else
+            newLocation.x = outerCircleOriginX + 110 * cosf(angle);
+        
+        if(outerCircleOriginY >= newLocation.y)
+            newLocation.y = outerCircleOriginY - 110 * sinf(angle);
+        else
+            newLocation.y = outerCircleOriginY + 110 * sinf(angle);
+    }
+    
+    self.innerCircle.center = newLocation;
 }
 
 -(void)sendDriveCommandWithTouchLocation:(CGPoint)touchLocation
@@ -181,8 +314,6 @@
     
     NSInteger radius = [self getDriveRadiusFromTouchLocation:touchLocation];
     NSInteger velocity = [self getDriveVelocityFromTouchLocation:touchLocation];
-    
-    [self setDPadImageFromTouchLocation:touchLocation];
     
     if([roombaController.ControllerIsRunning boolValue])
         [roombaController sendDriveCommandwithVelocity:velocity radius:radius];
@@ -198,18 +329,18 @@
         sign = -1;
     
     if([self isInStopZone:touchLocation.x])
-        radius = ROOMB_RADIUS_STRAIGT;
+        radius = kStraightRadius;
     else if([self isInRotateZone:touchLocation.x])
-        radius = (NSInteger)(sign * ROOMB_RADIUS_SPIN);
+        radius = (NSInteger)(sign * kSpinRadius);
     else
     {
-        factor = (sign * 1) - ((touchLocation.x - (sign * STOP_ZONE_RADIUS))/(ROTATE_ZONE_STARTPOINT-STOP_ZONE_RADIUS));
-        radius = (NSInteger)roundf(ROOMB_RADIUS_MAX * factor);
+        factor = (sign * 1) - ((touchLocation.x - (sign * kStopZoneHalfSize))/(kSpinZoneStart-kStopZoneHalfSize));
+        radius = (NSInteger)roundf(kMaxRadius * factor);
     }
 
     //if pressing left or right, but not up or down, turn slowly in place
     if([self isInStopZone:touchLocation.y] && ![self isInStopZone:touchLocation.x])
-        radius = (NSInteger)(sign * ROOMB_RADIUS_SPIN);
+        radius = (NSInteger)(sign * kSpinRadius);
     
     return radius;
 }
@@ -224,67 +355,35 @@
         sign = -1;
     
     if([self isInStopZone:touchLocation.y])
-        velocity = ROOMB_VELOCITY_STOPPED;
+        velocity = kStopVelocity;
     else if([self isInMaxVelocityZone:touchLocation.y])
-        velocity = (NSInteger)(sign * ROOMB_VELOCITY_MAX);
+        velocity = (NSInteger)(sign * kMaxVelocity);
     else
     {
-        factor = (touchLocation.y - (sign * STOP_ZONE_RADIUS))/(MAX_VELOCITY_ZONE_STARTPOINT-STOP_ZONE_RADIUS);
-        velocity = (NSInteger)roundf(ROOMB_VELOCITY_MAX * factor);
+        factor = (touchLocation.y - (sign * kStopZoneHalfSize))/(kMaxVelocityZoneStart-kStopZoneHalfSize);
+        velocity = (NSInteger)roundf(kMaxVelocity * factor);
     }
     
     //if pressing left or right, but not up or down, turn slowly in place
     if([self isInStopZone:touchLocation.y] && ![self isInStopZone:touchLocation.x])
-        velocity = STATIONARY_SPIN_SPEEN;
+        velocity = kSpinVelocity;
     
     return velocity;
 }
 
--(void)setDPadImageFromTouchLocation:(CGPoint)touchLocation
-{
-	//DLog(@"RMViewController setDPadImageFromTouchLocation");
-    
-    NSString *horizontalImageCode = @"";
-    NSString *verticalImageCode = @"";
-    
-    if([self isInStopZone:touchLocation.x])
-        horizontalImageCode = @"";
-    else if(IS_NEGATIVE(touchLocation.x))
-        horizontalImageCode = @"right";
-    else
-        horizontalImageCode = @"left";
-    
-    if([self isInStopZone:touchLocation.y])
-        verticalImageCode = @"";
-    else if(IS_NEGATIVE(touchLocation.y))
-        verticalImageCode = @"down";
-    else
-        verticalImageCode = @"up";
-    
-    //no code set, so set "off" code
-    if([horizontalImageCode isEqualToString:verticalImageCode])
-    {
-        verticalImageCode = @"off";
-        horizontalImageCode = @"";
-    }
-    
-    NSString *imageName = [NSString stringWithFormat:@"dpad-%@%@.png",verticalImageCode,horizontalImageCode];
-    [self.driveControl setImage:[UIImage imageNamed:imageName] forState:UIControlStateHighlighted];
-}
-
 -(BOOL)isInStopZone:(CGFloat)axisPoint
 {
-    return (axisPoint > -STOP_ZONE_RADIUS && axisPoint < STOP_ZONE_RADIUS);
+    return (axisPoint > -kStopZoneHalfSize && axisPoint < kStopZoneHalfSize);
 }
 
 -(BOOL)isInMaxVelocityZone:(CGFloat)axisPoint
 {
-    return (axisPoint < -MAX_VELOCITY_ZONE_STARTPOINT || axisPoint > MAX_VELOCITY_ZONE_STARTPOINT);
+    return (axisPoint < -kMaxVelocityZoneStart || axisPoint > kMaxVelocityZoneStart);
 }
 
 -(BOOL)isInRotateZone:(CGFloat)axisPoint
 {
-    return (axisPoint < -ROTATE_ZONE_STARTPOINT || axisPoint > ROTATE_ZONE_STARTPOINT);
+    return (axisPoint < -kSpinZoneStart || axisPoint > kSpinZoneStart);
 }
 
 -(void)handleRoombaBumbEvent
@@ -292,16 +391,36 @@
 	DLog(@"RMViewController handleRoombaBumbEvent");
     
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+    [self showBumpView];
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(hideBumpView) userInfo:nil repeats:NO];
 }
 
--(void)handleRoombaMovementDistance:(NSNumber *)distanceMM angle:(NSNumber *)angleRadians
+-(void)hideBumpView
 {
-	DLog(@"RMViewController handleRoombaMovementDistance %f",[angleRadians floatValue]);
+    if(![bumpTimer isValid])
+        [self.bumpView setHidden:YES];
+}
+
+-(void)showBumpView
+{
+    [self.bumpView setHidden:NO];
+}
+
+-(void)handleRoombaBatteryPercent:(NSNotification *)note
+{
+	DLog(@"RMViewController handleRoombaBatteryPercent");
+
+    NSUInteger level = [[[note userInfo] objectForKey:@"battPercent"] unsignedIntegerValue] / 10;
     
-    currentRoombaAngle = currentRoombaAngle-[angleRadians floatValue];
-    
-    CGAffineTransform rotateTransform = CGAffineTransformMakeRotation(currentRoombaAngle);
-    self.roombaImage.transform = rotateTransform;
+    if(batteryLevel != level)
+    {
+        batteryLevel = level;
+        if(batteryLevel == 0)
+            batteryLevel = 1;
+        
+        NSString *imageName = [NSString stringWithFormat:@"Battery_%u_.png",batteryLevel];
+        [self.batteryIcon setImage:[UIImage imageNamed:imageName]];
+    }
 }
 
 @end

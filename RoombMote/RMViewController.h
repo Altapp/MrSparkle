@@ -31,35 +31,40 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "RoombaController.h"
 
-
-#define TOUCHPAD_HALFSIZE 125
-#define STOP_ZONE_RADIUS 20
-#define ROTATE_ZONE_STARTPOINT 130
-#define MAX_VELOCITY_ZONE_STARTPOINT 150
-#define STATIONARY_SPIN_SPEEN 200
-
 #define IS_NEGATIVE(x) (x<0)
 #define IS_POSITIVE(x) (x>=0)
 
 
 @interface RMViewController : UIViewController <RoombaControllerDelegate>
 {
-    IBOutlet UILabel *statusLabel;
-    IBOutlet UIBarButtonItem *vacuumButton;
-    IBOutlet UIBarButtonItem *connectButton;
-    IBOutlet UIBarButtonItem *controlButton;
-    IBOutlet UIButton *driveControl;
-    IBOutlet UIImageView *roombaImage;
+    IBOutlet UIView *joystickView;
+    IBOutlet UIView *bumpView;
+    IBOutlet UIView *searchingView;
+    IBOutlet UIButton *searchingButton;
+    IBOutlet UIButton *vacuumButton;
+    IBOutlet UIImageView *batteryIcon;
+    IBOutlet UIImageView *outerCircle;
+    IBOutlet UIButton *innerCircle;
+    IBOutlet UIButton *dockButton;
+    IBOutlet UIButton *spotButton;
+    IBOutlet UIButton *cleanButton;
+    IBOutlet UIButton *maxButton;
+    IBOutlet UIButton *stopButton;
 }
 
-@property (nonatomic, retain) IBOutlet UILabel *statusLabel;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *vacuumButton;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *connectButton;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *controlButton;
-@property (nonatomic, retain) IBOutlet UIButton *driveControl;
-@property (nonatomic, retain) IBOutlet UIImageView *roombaImage;
-
--(void)appEnteredBackground;
+@property (nonatomic, retain) IBOutlet UIView *joystickView;
+@property (nonatomic, retain) IBOutlet UIView *bumpView;
+@property (nonatomic, retain) IBOutlet UIView *searchingView;
+@property (nonatomic, retain) IBOutlet UIButton *searchingButton;
+@property (nonatomic, retain) IBOutlet UIButton *vacuumButton;
+@property (nonatomic, retain) IBOutlet UIImageView *batteryIcon;
+@property (nonatomic, retain) IBOutlet UIImageView *outerCircle;
+@property (nonatomic, retain) IBOutlet UIButton *innerCircle;
+@property (nonatomic, retain) IBOutlet UIButton *dockButton;
+@property (nonatomic, retain) IBOutlet UIButton *spotButton;
+@property (nonatomic, retain) IBOutlet UIButton *cleanButton;
+@property (nonatomic, retain) IBOutlet UIButton *maxButton;
+@property (nonatomic, retain) IBOutlet UIButton *stopButton;
 
 //Roomba Delegate Methods
 -(void)roombaControllerDidStart;
@@ -67,23 +72,37 @@
 -(void)roombaControllerDidStop;
 
 //Buttons
--(IBAction)connectButtonAction:(UIBarButtonItem *)button;
--(IBAction)vacuumButtonAction:(UIBarButtonItem *)button;
--(IBAction)controlButtonAction:(UIBarButtonItem *)button;
+-(IBAction)vacuumButtonAction:(UIButton *)button;
+-(IBAction)searchButtonAction:(UIButton *)button;
+-(IBAction)dockButtonAction:(UIButton *)button;
+-(IBAction)spotButtonAction:(UIButton *)button;
+-(IBAction)cleanButtonAction:(UIButton *)button;
+-(IBAction)maxButtonAction:(UIButton *)button;
+-(IBAction)stopButtonAction:(UIButton *)button;
 
 //Drive Control
--(IBAction)driveControlTouchDownAction:(UILongPressGestureRecognizer *)recognizer;
--(IBAction)driveControlTouchUpAction:(id)sender;
+-(IBAction)joystickTouchDownAction:(UILongPressGestureRecognizer *)recognizer;
+-(IBAction)joystickTouchUpAction:(id)sender;
+-(void)moveJoystick:(CGPoint)newLocation;
 -(void)sendDriveCommandWithTouchLocation:(CGPoint)touchLocation;
 -(NSInteger)getDriveRadiusFromTouchLocation:(CGPoint)touchLocation;
 -(NSInteger)getDriveVelocityFromTouchLocation:(CGPoint)touchLocation;
--(void)setDPadImageFromTouchLocation:(CGPoint)touchLocation;
 -(BOOL)isInStopZone:(CGFloat)axisPoint;
 -(BOOL)isInMaxVelocityZone:(CGFloat)axisPoint;
 -(BOOL)isInRotateZone:(CGFloat)axisPoint;
 
 //Event Handling
 -(void)handleRoombaBumbEvent;
--(void)handleRoombaMovementDistance:(NSNumber *)distanceMM angle:(NSNumber *)angleRadians;
+-(void)handleRoombaBatteryPercent:(NSNotification *)note;
+
+
+//Public Constants
+typedef enum
+{
+    kTouchpadHalfSize = 125,
+    kStopZoneHalfSize = 20,
+    kSpinZoneStart = 130,
+    kMaxVelocityZoneStart = 150
+} TouchZones;
 
 @end
