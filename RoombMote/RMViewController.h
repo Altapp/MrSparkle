@@ -40,6 +40,7 @@
     IBOutlet UIView *joystickView;
     IBOutlet UIView *bumpView;
     IBOutlet UIView *searchingView;
+    IBOutlet UIView *instructionsView;
     IBOutlet UIButton *searchingButton;
     IBOutlet UIButton *vacuumButton;
     IBOutlet UIImageView *batteryIcon;
@@ -55,6 +56,7 @@
 @property (nonatomic, retain) IBOutlet UIView *joystickView;
 @property (nonatomic, retain) IBOutlet UIView *bumpView;
 @property (nonatomic, retain) IBOutlet UIView *searchingView;
+@property (nonatomic, retain) IBOutlet UIView *instructionsView;
 @property (nonatomic, retain) IBOutlet UIButton *searchingButton;
 @property (nonatomic, retain) IBOutlet UIButton *vacuumButton;
 @property (nonatomic, retain) IBOutlet UIImageView *batteryIcon;

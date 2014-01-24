@@ -151,6 +151,25 @@
                                     <action selector="stopButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HjZ-Uj-nku"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="1P2-U4-lve">
+                                <rect key="frame" x="22" y="190" width="275" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.89999999999999991" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instructions.png" id="1k9-dI-9WY">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure you are connected to the WiFi Dongle's network in your device's network settings." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nAF-KL-n2n">
+                                        <rect key="frame" x="15" y="0.0" width="245" height="98"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.91252946853637695" green="0.91250211000442505" blue="0.91251760721206665" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -162,6 +181,7 @@
                         <outlet property="cleanButton" destination="LLk-BC-sTW" id="n4a-du-bXF"/>
                         <outlet property="dockButton" destination="EYC-ze-xh1" id="QYr-9c-Wqe"/>
                         <outlet property="innerCircle" destination="2u6-hC-zuy" id="6D9-77-aCq"/>
+                        <outlet property="instructionsView" destination="1P2-U4-lve" id="Ssh-Cn-eRC"/>
                         <outlet property="joystickView" destination="Y4W-WQ-3TR" id="riB-nz-CIN"/>
                         <outlet property="maxButton" destination="awg-8G-hmD" id="DTC-9S-yML"/>
                         <outlet property="outerCircle" destination="Yly-wa-fx1" id="8zG-6U-Qai"/>
@@ -193,6 +213,7 @@
         <image name="Battery_10_.png" width="23" height="13"/>
         <image name="Bounds.png" width="260" height="260"/>
         <image name="Halftone.png" width="251" height="251"/>
+        <image name="Instructions.png" width="275" height="100"/>
         <image name="Joystick.png" width="63" height="63"/>
         <image name="Searching.png" width="207" height="50"/>
         <image name="Vacuum_Toggle_OFF.png" width="30" height="24"/>

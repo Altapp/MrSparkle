@@ -66,6 +66,7 @@
 @synthesize cleanButton;
 @synthesize maxButton;
 @synthesize stopButton;
+@synthesize instructionsView;
 
 - (id)init
 {
@@ -113,6 +114,7 @@
     [self disableControlButtons];
     [self.searchingButton setEnabled:NO];
     [self.searchingView setHidden:NO];
+    [self.instructionsView setHidden:NO];
     [roombaController startRoombaController];
 }
 
@@ -136,7 +138,9 @@
 -(void)roombaControllerDidStart
 {
 	DLog(@"RMViewController roombaControllerDidStart");
+    [self.searchingButton setEnabled:NO];
     [self.searchingView setHidden:YES];
+    [self.instructionsView setHidden:YES];
     [self enableControlButtons];
 }
 
@@ -405,6 +409,7 @@
 {
     [self.bumpView setHidden:NO];
 }
+
 
 -(void)handleRoombaBatteryPercent:(NSNotification *)note
 {

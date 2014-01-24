@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "34C7EA81183BDC3F004EB549"
-               BuildableName = "RoombMote.app"
+               BuildableName = "Mr. Sparkle.app"
                BlueprintName = "Mr. Sparkle"
                ReferencedContainer = "container:Mr. Sparkle.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "34C7EAA5183BDC40004EB549"
-               BuildableName = "RoombMoteTests.xctest"
+               BuildableName = "Mr. SparkleTests.xctest"
                BlueprintName = "Mr. SparkleTests"
                ReferencedContainer = "container:Mr. Sparkle.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "34C7EA81183BDC3F004EB549"
-            BuildableName = "RoombMote.app"
+            BuildableName = "Mr. Sparkle.app"
             BlueprintName = "Mr. Sparkle"
             ReferencedContainer = "container:Mr. Sparkle.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "34C7EA81183BDC3F004EB549"
-            BuildableName = "RoombMote.app"
+            BuildableName = "Mr. Sparkle.app"
             BlueprintName = "Mr. Sparkle"
             ReferencedContainer = "container:Mr. Sparkle.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "34C7EA81183BDC3F004EB549"
-            BuildableName = "RoombMote.app"
+            BuildableName = "Mr. Sparkle.app"
             BlueprintName = "Mr. Sparkle"
             ReferencedContainer = "container:Mr. Sparkle.xcodeproj">
          </BuildableReference>
