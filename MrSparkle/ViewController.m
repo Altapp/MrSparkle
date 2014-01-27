@@ -1,6 +1,6 @@
 //
 //  RMViewController.m
-//  RoombMote
+//  Mr. Sparkle
 //
 //  Copyright (c) 2013 Jess Latimer
 //
@@ -27,9 +27,9 @@
 //  THE SOFTWARE.
 
 
-#import "RMViewController.h"
+#import "ViewController.h"
 
-@interface RMViewController ()
+@interface ViewController ()
 {
     RoombaController *roombaController;
     NSUInteger batteryLevel;
@@ -49,7 +49,7 @@
 -(void)disableControlButtons;
 @end
 
-@implementation RMViewController
+@implementation ViewController
 
 @synthesize roombaController;
 @synthesize joystickView;

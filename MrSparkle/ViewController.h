@@ -1,6 +1,6 @@
 //
 //  RMViewController.h
-//  RoombMote
+//  Mr. Sparkle
 //
 //  Copyright (c) 2013 Jess Latimer
 //
@@ -35,7 +35,7 @@
 #define IS_POSITIVE(x) (x>=0)
 
 
-@interface RMViewController : UIViewController <RoombaControllerDelegate>
+@interface ViewController : UIViewController <RoombaControllerDelegate>
 {
     IBOutlet UIView *joystickView;
     IBOutlet UIView *bumpView;

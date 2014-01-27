@@ -1,6 +1,6 @@
 //
 //  main.m
-//  RoombMote
+//  Mr. Sparkle
 //
 //  Copyright (c) 2013 Jess Latimer
 //
@@ -29,11 +29,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "RMAppDelegate.h"
+#import "AppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([RMAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

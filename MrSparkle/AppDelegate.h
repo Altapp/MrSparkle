@@ -1,6 +1,6 @@
 //
 //  RMAppDelegate.h
-//  RoombMote
+//  Mr. Sparkle
 //
 //  Copyright (c) 2013 Jess Latimer
 //
@@ -29,7 +29,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RMAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

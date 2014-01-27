@@ -1,6 +1,6 @@
 //
 //  RMAppDelegate.m
-//  RoombMote
+//  Mr. Sparkle
 //
 //  Copyright (c) 2013 Jess Latimer
 //
@@ -27,10 +27,10 @@
 //  THE SOFTWARE.
 
 
-#import "RMAppDelegate.h"
-#import "RMViewController.h"
+#import "AppDelegate.h"
+#import "ViewController.h"
 
-@implementation RMAppDelegate
+@implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

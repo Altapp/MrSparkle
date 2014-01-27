@@ -17,15 +17,15 @@
 		34C7EA8A183BDC3F004EB549 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA89183BDC3F004EB549 /* UIKit.framework */; };
 		34C7EA90183BDC3F004EB549 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EA8E183BDC3F004EB549 /* InfoPlist.strings */; };
 		34C7EA92183BDC3F004EB549 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EA91183BDC3F004EB549 /* main.m */; };
-		34C7EA96183BDC3F004EB549 /* RMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EA95183BDC3F004EB549 /* RMAppDelegate.m */; };
+		34C7EA96183BDC3F004EB549 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EA95183BDC3F004EB549 /* AppDelegate.m */; };
 		34C7EA99183BDC3F004EB549 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EA97183BDC3F004EB549 /* Main_iPhone.storyboard */; };
-		34C7EA9F183BDC3F004EB549 /* RMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EA9E183BDC3F004EB549 /* RMViewController.m */; };
+		34C7EA9F183BDC3F004EB549 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EA9E183BDC3F004EB549 /* ViewController.m */; };
 		34C7EAA1183BDC40004EB549 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EAA0183BDC40004EB549 /* Images.xcassets */; };
 		34C7EAA8183BDC40004EB549 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EAA7183BDC40004EB549 /* XCTest.framework */; };
 		34C7EAA9183BDC40004EB549 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA85183BDC3F004EB549 /* Foundation.framework */; };
 		34C7EAAA183BDC40004EB549 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA89183BDC3F004EB549 /* UIKit.framework */; };
 		34C7EAB2183BDC40004EB549 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EAB0183BDC40004EB549 /* InfoPlist.strings */; };
-		34C7EAB4183BDC40004EB549 /* RoombMoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EAB3183BDC40004EB549 /* RoombMoteTests.m */; };
+		34C7EAB4183BDC40004EB549 /* MrSparkleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EAB3183BDC40004EB549 /* MrSparkleTests.m */; };
 		34D9CDD318775F3A00F0394D /* Battery_1_.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDAF18775F3900F0394D /* Battery_1_.png */; };
 		34D9CDD418775F3A00F0394D /* Arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDB018775F3900F0394D /* Arrows.png */; };
 		34D9CDD518775F3A00F0394D /* Vacuum_Toggle_OFF.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDB118775F3900F0394D /* Vacuum_Toggle_OFF.png */; };
@@ -88,17 +88,17 @@
 		34C7EA8F183BDC3F004EB549 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		34C7EA91183BDC3F004EB549 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		34C7EA93183BDC3F004EB549 /* Mr. Sparkle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mr. Sparkle-Prefix.pch"; sourceTree = "<group>"; };
-		34C7EA94183BDC3F004EB549 /* RMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMAppDelegate.h; sourceTree = "<group>"; };
-		34C7EA95183BDC3F004EB549 /* RMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMAppDelegate.m; sourceTree = "<group>"; };
+		34C7EA94183BDC3F004EB549 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		34C7EA95183BDC3F004EB549 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		34C7EA98183BDC3F004EB549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		34C7EA9D183BDC3F004EB549 /* RMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMViewController.h; sourceTree = "<group>"; };
-		34C7EA9E183BDC3F004EB549 /* RMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMViewController.m; sourceTree = "<group>"; };
+		34C7EA9D183BDC3F004EB549 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		34C7EA9E183BDC3F004EB549 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		34C7EAA0183BDC40004EB549 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		34C7EAA6183BDC40004EB549 /* Mr. SparkleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mr. SparkleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34C7EAA7183BDC40004EB549 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		34C7EAAF183BDC40004EB549 /* Mr. SparkleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mr. SparkleTests-Info.plist"; sourceTree = "<group>"; };
 		34C7EAB1183BDC40004EB549 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		34C7EAB3183BDC40004EB549 /* RoombMoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoombMoteTests.m; sourceTree = "<group>"; };
+		34C7EAB3183BDC40004EB549 /* MrSparkleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MrSparkleTests.m; sourceTree = "<group>"; };
 		34D9CDAF18775F3900F0394D /* Battery_1_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Battery_1_.png; sourceTree = "<group>"; };
 		34D9CDB018775F3900F0394D /* Arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrows.png; sourceTree = "<group>"; };
 		34D9CDB118775F3900F0394D /* Vacuum_Toggle_OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vacuum_Toggle_OFF.png; sourceTree = "<group>"; };
@@ -200,11 +200,11 @@
 		34C7EA8B183BDC3F004EB549 /* MrSparkle */ = {
 			isa = PBXGroup;
 			children = (
-				34C7EA94183BDC3F004EB549 /* RMAppDelegate.h */,
-				34C7EA95183BDC3F004EB549 /* RMAppDelegate.m */,
+				34C7EA94183BDC3F004EB549 /* AppDelegate.h */,
+				34C7EA95183BDC3F004EB549 /* AppDelegate.m */,
 				34C7EA97183BDC3F004EB549 /* Main_iPhone.storyboard */,
-				34C7EA9D183BDC3F004EB549 /* RMViewController.h */,
-				34C7EA9E183BDC3F004EB549 /* RMViewController.m */,
+				34C7EA9D183BDC3F004EB549 /* ViewController.h */,
+				34C7EA9E183BDC3F004EB549 /* ViewController.m */,
 				34C7EAA0183BDC40004EB549 /* Images.xcassets */,
 				34C7EA8C183BDC3F004EB549 /* Supporting Files */,
 			);
@@ -226,7 +226,7 @@
 		34C7EAAD183BDC40004EB549 /* MrSparkleTests */ = {
 			isa = PBXGroup;
 			children = (
-				34C7EAB3183BDC40004EB549 /* RoombMoteTests.m */,
+				34C7EAB3183BDC40004EB549 /* MrSparkleTests.m */,
 				34C7EAAE183BDC40004EB549 /* Supporting Files */,
 			);
 			path = MrSparkleTests;
@@ -426,8 +426,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C7EA92183BDC3F004EB549 /* main.m in Sources */,
-				34C7EA96183BDC3F004EB549 /* RMAppDelegate.m in Sources */,
-				34C7EA9F183BDC3F004EB549 /* RMViewController.m in Sources */,
+				34C7EA96183BDC3F004EB549 /* AppDelegate.m in Sources */,
+				34C7EA9F183BDC3F004EB549 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34C7EAB4183BDC40004EB549 /* RoombMoteTests.m in Sources */,
+				34C7EAB4183BDC40004EB549 /* MrSparkleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,7 +631,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RoombMote.app/RoombMote";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MrSparkle.app/MrSparkle";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -660,7 +660,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RoombMote.app/RoombMote";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MrSparkle.app/MrSparkle";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
