@@ -2,7 +2,7 @@
 //  main.m
 //  Mr. Sparkle
 //
-//  Copyright (c) 2013 Jess Latimer
+//  Copyright (c) 2013 Jess Latimer, Bruce Giovando
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
