@@ -5,6 +5,8 @@ A Roomba Vacuum Remote Control iOS Application for controlling a Roomba Vacuum c
 
 Just join WiFi network created by the WiFi Dongle in your iPhone's Settings, disconnect the Roomba from its charger, and launch the App; you will now be able to drive the Roomba and control the Vacuum from your iPhone! 
 
+![Screenshot](Screenshot.png)
+
 Required Parts: 
 - Roomba Vacuum with SCI Port 
 - WiFi-to-RS232 Dongle (http://goo.gl/C6Pfsc) 
