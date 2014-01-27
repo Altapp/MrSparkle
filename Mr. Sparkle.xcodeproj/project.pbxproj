@@ -167,8 +167,8 @@
 		34C7EA79183BDC3F004EB549 = {
 			isa = PBXGroup;
 			children = (
-				34C7EA8B183BDC3F004EB549 /* RoombMote */,
-				34C7EAAD183BDC40004EB549 /* RoombMoteTests */,
+				34C7EA8B183BDC3F004EB549 /* MrSparkle */,
+				34C7EAAD183BDC40004EB549 /* MrSparkleTests */,
 				34C7EA84183BDC3F004EB549 /* Frameworks */,
 				34C7EA83183BDC3F004EB549 /* Products */,
 			);
@@ -197,7 +197,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		34C7EA8B183BDC3F004EB549 /* RoombMote */ = {
+		34C7EA8B183BDC3F004EB549 /* MrSparkle */ = {
 			isa = PBXGroup;
 			children = (
 				34C7EA94183BDC3F004EB549 /* RMAppDelegate.h */,
@@ -208,7 +208,7 @@
 				34C7EAA0183BDC40004EB549 /* Images.xcassets */,
 				34C7EA8C183BDC3F004EB549 /* Supporting Files */,
 			);
-			path = RoombMote;
+			path = MrSparkle;
 			sourceTree = "<group>";
 		};
 		34C7EA8C183BDC3F004EB549 /* Supporting Files */ = {
@@ -223,13 +223,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		34C7EAAD183BDC40004EB549 /* RoombMoteTests */ = {
+		34C7EAAD183BDC40004EB549 /* MrSparkleTests */ = {
 			isa = PBXGroup;
 			children = (
 				34C7EAB3183BDC40004EB549 /* RoombMoteTests.m */,
 				34C7EAAE183BDC40004EB549 /* Supporting Files */,
 			);
-			path = RoombMoteTests;
+			path = MrSparkleTests;
 			sourceTree = "<group>";
 		};
 		34C7EAAE183BDC40004EB549 /* Supporting Files */ = {
@@ -568,14 +568,14 @@
 					/Users/jesslatimer/Work/WiFiDongleController/Products,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RoombMote/Mr. Sparkle-Prefix.pch";
+				GCC_PREFIX_HEADER = "MrSparkle/Mr. Sparkle-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/Users/jesslatimer/Work/RoombaController/Products/include,
 					/Users/jesslatimer/Work/WiFiDongleController/Products/include,
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/RoombMote/Mr. Sparkle-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/MrSparkle/Mr. Sparkle-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -605,14 +605,14 @@
 					/Users/jesslatimer/Work/WiFiDongleController/Products,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RoombMote/Mr. Sparkle-Prefix.pch";
+				GCC_PREFIX_HEADER = "MrSparkle/Mr. Sparkle-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/Users/jesslatimer/Work/RoombaController/Products/include,
 					/Users/jesslatimer/Work/WiFiDongleController/Products/include,
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/RoombMote/Mr. Sparkle-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/MrSparkle/Mr. Sparkle-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
