@@ -21,11 +21,6 @@
 		34C7EA99183BDC3F004EB549 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EA97183BDC3F004EB549 /* Main_iPhone.storyboard */; };
 		34C7EA9F183BDC3F004EB549 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EA9E183BDC3F004EB549 /* ViewController.m */; };
 		34C7EAA1183BDC40004EB549 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EAA0183BDC40004EB549 /* Images.xcassets */; };
-		34C7EAA8183BDC40004EB549 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EAA7183BDC40004EB549 /* XCTest.framework */; };
-		34C7EAA9183BDC40004EB549 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA85183BDC3F004EB549 /* Foundation.framework */; };
-		34C7EAAA183BDC40004EB549 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA89183BDC3F004EB549 /* UIKit.framework */; };
-		34C7EAB2183BDC40004EB549 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EAB0183BDC40004EB549 /* InfoPlist.strings */; };
-		34C7EAB4183BDC40004EB549 /* MrSparkleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EAB3183BDC40004EB549 /* MrSparkleTests.m */; };
 		34D9CDD318775F3A00F0394D /* Battery_1_.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDAF18775F3900F0394D /* Battery_1_.png */; };
 		34D9CDD418775F3A00F0394D /* Arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDB018775F3900F0394D /* Arrows.png */; };
 		34D9CDD518775F3A00F0394D /* Vacuum_Toggle_OFF.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDB118775F3900F0394D /* Vacuum_Toggle_OFF.png */; };
@@ -64,16 +59,6 @@
 		34D9CE021877659A00F0394D /* Joystick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDFC1877659A00F0394D /* Joystick@2x.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		34C7EAAB183BDC40004EB549 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34C7EA7A183BDC3F004EB549 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 34C7EA81183BDC3F004EB549;
-			remoteInfo = RoombMote;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		344153791891E5B800AE58B4 /* Instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions.png; sourceTree = "<group>"; };
 		3441537A1891E5B800AE58B4 /* Instructions@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Instructions@2x.png"; sourceTree = "<group>"; };
@@ -94,11 +79,6 @@
 		34C7EA9D183BDC3F004EB549 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		34C7EA9E183BDC3F004EB549 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		34C7EAA0183BDC40004EB549 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		34C7EAA6183BDC40004EB549 /* Mr. SparkleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mr. SparkleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		34C7EAA7183BDC40004EB549 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		34C7EAAF183BDC40004EB549 /* Mr. SparkleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mr. SparkleTests-Info.plist"; sourceTree = "<group>"; };
-		34C7EAB1183BDC40004EB549 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		34C7EAB3183BDC40004EB549 /* MrSparkleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MrSparkleTests.m; sourceTree = "<group>"; };
 		34D9CDAF18775F3900F0394D /* Battery_1_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Battery_1_.png; sourceTree = "<group>"; };
 		34D9CDB018775F3900F0394D /* Arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrows.png; sourceTree = "<group>"; };
 		34D9CDB118775F3900F0394D /* Vacuum_Toggle_OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vacuum_Toggle_OFF.png; sourceTree = "<group>"; };
@@ -151,16 +131,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		34C7EAA3183BDC40004EB549 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				34C7EAA8183BDC40004EB549 /* XCTest.framework in Frameworks */,
-				34C7EAAA183BDC40004EB549 /* UIKit.framework in Frameworks */,
-				34C7EAA9183BDC40004EB549 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -168,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				34C7EA8B183BDC3F004EB549 /* MrSparkle */,
-				34C7EAAD183BDC40004EB549 /* MrSparkleTests */,
 				34C7EA84183BDC3F004EB549 /* Frameworks */,
 				34C7EA83183BDC3F004EB549 /* Products */,
 			);
@@ -178,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				34C7EA82183BDC3F004EB549 /* Mr. Sparkle.app */,
-				34C7EAA6183BDC40004EB549 /* Mr. SparkleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,7 +160,6 @@
 				34C7EA85183BDC3F004EB549 /* Foundation.framework */,
 				34C7EA87183BDC3F004EB549 /* CoreGraphics.framework */,
 				34C7EA89183BDC3F004EB549 /* UIKit.framework */,
-				34C7EAA7183BDC40004EB549 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,24 +186,6 @@
 				34C7EA8E183BDC3F004EB549 /* InfoPlist.strings */,
 				34C7EA91183BDC3F004EB549 /* main.m */,
 				34C7EA93183BDC3F004EB549 /* Mr. Sparkle-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		34C7EAAD183BDC40004EB549 /* MrSparkleTests */ = {
-			isa = PBXGroup;
-			children = (
-				34C7EAB3183BDC40004EB549 /* MrSparkleTests.m */,
-				34C7EAAE183BDC40004EB549 /* Supporting Files */,
-			);
-			path = MrSparkleTests;
-			sourceTree = "<group>";
-		};
-		34C7EAAE183BDC40004EB549 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				34C7EAAF183BDC40004EB549 /* Mr. SparkleTests-Info.plist */,
-				34C7EAB0183BDC40004EB549 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -306,24 +255,6 @@
 			productReference = 34C7EA82183BDC3F004EB549 /* Mr. Sparkle.app */;
 			productType = "com.apple.product-type.application";
 		};
-		34C7EAA5183BDC40004EB549 /* Mr. SparkleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 34C7EABA183BDC40004EB549 /* Build configuration list for PBXNativeTarget "Mr. SparkleTests" */;
-			buildPhases = (
-				34C7EAA2183BDC40004EB549 /* Sources */,
-				34C7EAA3183BDC40004EB549 /* Frameworks */,
-				34C7EAA4183BDC40004EB549 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				34C7EAAC183BDC40004EB549 /* PBXTargetDependency */,
-			);
-			name = "Mr. SparkleTests";
-			productName = RoombMoteTests;
-			productReference = 34C7EAA6183BDC40004EB549 /* Mr. SparkleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -336,9 +267,6 @@
 				TargetAttributes = {
 					34C7EA81183BDC3F004EB549 = {
 						DevelopmentTeam = 93DGXPEF39;
-					};
-					34C7EAA5183BDC40004EB549 = {
-						TestTargetID = 34C7EA81183BDC3F004EB549;
 					};
 				};
 			};
@@ -356,7 +284,6 @@
 			projectRoot = "";
 			targets = (
 				34C7EA81183BDC3F004EB549 /* Mr. Sparkle */,
-				34C7EAA5183BDC40004EB549 /* Mr. SparkleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -410,14 +337,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		34C7EAA4183BDC40004EB549 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				34C7EAB2183BDC40004EB549 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -431,23 +350,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		34C7EAA2183BDC40004EB549 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				34C7EAB4183BDC40004EB549 /* MrSparkleTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		34C7EAAC183BDC40004EB549 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 34C7EA81183BDC3F004EB549 /* Mr. Sparkle */;
-			targetProxy = 34C7EAAB183BDC40004EB549 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		34C7EA8E183BDC3F004EB549 /* InfoPlist.strings */ = {
@@ -464,14 +367,6 @@
 				34C7EA98183BDC3F004EB549 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		34C7EAB0183BDC40004EB549 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				34C7EAB1183BDC40004EB549 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -627,60 +522,6 @@
 			};
 			name = Release;
 		};
-		34C7EABB183BDC40004EB549 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MrSparkle.app/MrSparkle";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RoombMote/RoombMote-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/Users/jesslatimer/Work/RoombaController/Products/include,
-					/Users/jesslatimer/Work/WiFiDongleController/Products/include,
-				);
-				INFOPLIST_FILE = "RoombMoteTests/Mr. SparkleTests-Info.plist";
-				PRODUCT_NAME = "Mr. SparkleTests";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		34C7EABC183BDC40004EB549 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MrSparkle.app/MrSparkle";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RoombMote/RoombMote-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/Users/jesslatimer/Work/RoombaController/Products/include,
-					/Users/jesslatimer/Work/WiFiDongleController/Products/include,
-				);
-				INFOPLIST_FILE = "RoombMoteTests/Mr. SparkleTests-Info.plist";
-				PRODUCT_NAME = "Mr. SparkleTests";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -698,15 +539,6 @@
 			buildConfigurations = (
 				34C7EAB8183BDC40004EB549 /* Debug */,
 				34C7EAB9183BDC40004EB549 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		34C7EABA183BDC40004EB549 /* Build configuration list for PBXNativeTarget "Mr. SparkleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				34C7EABB183BDC40004EB549 /* Debug */,
-				34C7EABC183BDC40004EB549 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
