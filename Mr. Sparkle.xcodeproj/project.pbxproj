@@ -7,9 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3419325318B7C9B6005B91AE /* Alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419322D18B7C9B6005B91AE /* Alert.png */; };
+		3419325418B7C9B6005B91AE /* Alert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419322E18B7C9B6005B91AE /* Alert@2x.png */; };
+		3419325518B7C9B6005B91AE /* Arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419322F18B7C9B6005B91AE /* Arrows.png */; };
+		3419325618B7C9B6005B91AE /* Arrows@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323018B7C9B6005B91AE /* Arrows@2x.png */; };
+		3419325718B7C9B6005B91AE /* Battery_1_.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323118B7C9B6005B91AE /* Battery_1_.png */; };
+		3419325818B7C9B6005B91AE /* Battery_1_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323218B7C9B6005B91AE /* Battery_1_@2x.png */; };
+		3419325918B7C9B6005B91AE /* Battery_2_.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323318B7C9B6005B91AE /* Battery_2_.png */; };
+		3419325A18B7C9B6005B91AE /* Battery_2_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323418B7C9B6005B91AE /* Battery_2_@2x.png */; };
+		3419325B18B7C9B6005B91AE /* Battery_3_.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323518B7C9B6005B91AE /* Battery_3_.png */; };
+		3419325C18B7C9B6005B91AE /* Battery_3_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323618B7C9B6005B91AE /* Battery_3_@2x.png */; };
+		3419325D18B7C9B6005B91AE /* Battery_4_.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323718B7C9B6005B91AE /* Battery_4_.png */; };
+		3419325E18B7C9B6005B91AE /* Battery_4_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323818B7C9B6005B91AE /* Battery_4_@2x.png */; };
+		3419325F18B7C9B6005B91AE /* Battery_5_.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323918B7C9B6005B91AE /* Battery_5_.png */; };
+		3419326018B7C9B6005B91AE /* Battery_5_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323A18B7C9B6005B91AE /* Battery_5_@2x.png */; };
+		3419326118B7C9B6005B91AE /* Battery_6_.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323B18B7C9B6005B91AE /* Battery_6_.png */; };
+		3419326218B7C9B6005B91AE /* Battery_6_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323C18B7C9B6005B91AE /* Battery_6_@2x.png */; };
+		3419326318B7C9B6005B91AE /* Battery_7_.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323D18B7C9B6005B91AE /* Battery_7_.png */; };
+		3419326418B7C9B6005B91AE /* Battery_7_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323E18B7C9B6005B91AE /* Battery_7_@2x.png */; };
+		3419326518B7C9B6005B91AE /* Battery_8_.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419323F18B7C9B6005B91AE /* Battery_8_.png */; };
+		3419326618B7C9B6005B91AE /* Battery_8_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324018B7C9B6005B91AE /* Battery_8_@2x.png */; };
+		3419326718B7C9B6005B91AE /* Battery_9_.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324118B7C9B6005B91AE /* Battery_9_.png */; };
+		3419326818B7C9B6005B91AE /* Battery_9_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324218B7C9B6005B91AE /* Battery_9_@2x.png */; };
+		3419326918B7C9B6005B91AE /* Battery_10_.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324318B7C9B6005B91AE /* Battery_10_.png */; };
+		3419326A18B7C9B6005B91AE /* Battery_10_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324418B7C9B6005B91AE /* Battery_10_@2x.png */; };
+		3419326B18B7C9B6005B91AE /* Bounds.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324518B7C9B6005B91AE /* Bounds.png */; };
+		3419326C18B7C9B6005B91AE /* Bounds@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324618B7C9B6005B91AE /* Bounds@2x.png */; };
+		3419326D18B7C9B6005B91AE /* Halftone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324718B7C9B6005B91AE /* Halftone.png */; };
+		3419326E18B7C9B6005B91AE /* Halftone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324818B7C9B6005B91AE /* Halftone@2x.png */; };
+		3419326F18B7C9B6005B91AE /* Instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324918B7C9B6005B91AE /* Instructions.png */; };
+		3419327018B7C9B6005B91AE /* Instructions@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324A18B7C9B6005B91AE /* Instructions@2x.png */; };
+		3419327118B7C9B6005B91AE /* Joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324B18B7C9B6005B91AE /* Joystick.png */; };
+		3419327218B7C9B6005B91AE /* Joystick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324C18B7C9B6005B91AE /* Joystick@2x.png */; };
+		3419327318B7C9B6005B91AE /* Searching.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324D18B7C9B6005B91AE /* Searching.png */; };
+		3419327418B7C9B6005B91AE /* Searching@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324E18B7C9B6005B91AE /* Searching@2x.png */; };
+		3419327518B7C9B6005B91AE /* Vacuum_Toggle_OFF.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419324F18B7C9B6005B91AE /* Vacuum_Toggle_OFF.png */; };
+		3419327618B7C9B6005B91AE /* Vacuum_Toggle_OFF@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419325018B7C9B6005B91AE /* Vacuum_Toggle_OFF@2x.png */; };
+		3419327718B7C9B6005B91AE /* Vacuum_Toggle_ON.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419325118B7C9B6005B91AE /* Vacuum_Toggle_ON.png */; };
+		3419327818B7C9B6005B91AE /* Vacuum_Toggle_ON@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3419325218B7C9B6005B91AE /* Vacuum_Toggle_ON@2x.png */; };
 		344153741891DC0100AE58B4 /* RoombaController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BA4CE71840A11000021605 /* RoombaController.a */; };
-		3441537B1891E5B800AE58B4 /* Instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = 344153791891E5B800AE58B4 /* Instructions.png */; };
-		3441537C1891E5B800AE58B4 /* Instructions@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3441537A1891E5B800AE58B4 /* Instructions@2x.png */; };
 		34AD36B4183D72ED007880E1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AD36B3183D72ED007880E1 /* SystemConfiguration.framework */; };
 		34BA4D361841511F00021605 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BA4D351841511F00021605 /* AudioToolbox.framework */; };
 		34C7EA86183BDC3F004EB549 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C7EA85183BDC3F004EB549 /* Foundation.framework */; };
@@ -21,47 +57,47 @@
 		34C7EA99183BDC3F004EB549 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EA97183BDC3F004EB549 /* Main_iPhone.storyboard */; };
 		34C7EA9F183BDC3F004EB549 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7EA9E183BDC3F004EB549 /* ViewController.m */; };
 		34C7EAA1183BDC40004EB549 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34C7EAA0183BDC40004EB549 /* Images.xcassets */; };
-		34D9CDD318775F3A00F0394D /* Battery_1_.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDAF18775F3900F0394D /* Battery_1_.png */; };
-		34D9CDD418775F3A00F0394D /* Arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDB018775F3900F0394D /* Arrows.png */; };
-		34D9CDD518775F3A00F0394D /* Vacuum_Toggle_OFF.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDB118775F3900F0394D /* Vacuum_Toggle_OFF.png */; };
-		34D9CDD718775F3A00F0394D /* Battery_9_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDB318775F3900F0394D /* Battery_9_@2x.png */; };
-		34D9CDD818775F3A00F0394D /* Alert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDB418775F3900F0394D /* Alert@2x.png */; };
-		34D9CDDB18775F3A00F0394D /* Searching.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDB718775F3900F0394D /* Searching.png */; };
-		34D9CDDC18775F3A00F0394D /* Battery_9_.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDB818775F3900F0394D /* Battery_9_.png */; };
-		34D9CDDE18775F3A00F0394D /* Battery_10_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDBA18775F3A00F0394D /* Battery_10_@2x.png */; };
-		34D9CDE018775F3A00F0394D /* Vacuum_Toggle_ON.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDBC18775F3A00F0394D /* Vacuum_Toggle_ON.png */; };
-		34D9CDE118775F3A00F0394D /* Battery_8_.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDBD18775F3A00F0394D /* Battery_8_.png */; };
-		34D9CDE218775F3A00F0394D /* Battery_8_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDBE18775F3A00F0394D /* Battery_8_@2x.png */; };
-		34D9CDE318775F3A00F0394D /* Battery_7_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDBF18775F3A00F0394D /* Battery_7_@2x.png */; };
-		34D9CDE418775F3A00F0394D /* Searching@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDC018775F3A00F0394D /* Searching@2x.png */; };
-		34D9CDE518775F3A00F0394D /* Battery_10_.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDC118775F3A00F0394D /* Battery_10_.png */; };
-		34D9CDE718775F3A00F0394D /* Battery_7_.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDC318775F3A00F0394D /* Battery_7_.png */; };
-		34D9CDE818775F3A00F0394D /* Battery_6_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDC418775F3A00F0394D /* Battery_6_@2x.png */; };
-		34D9CDE918775F3A00F0394D /* Battery_6_.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDC518775F3A00F0394D /* Battery_6_.png */; };
-		34D9CDEA18775F3A00F0394D /* Battery_5_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDC618775F3A00F0394D /* Battery_5_@2x.png */; };
-		34D9CDEB18775F3A00F0394D /* Battery_2_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDC718775F3A00F0394D /* Battery_2_@2x.png */; };
-		34D9CDEC18775F3A00F0394D /* Battery_5_.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDC818775F3A00F0394D /* Battery_5_.png */; };
-		34D9CDED18775F3A00F0394D /* Battery_4_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDC918775F3A00F0394D /* Battery_4_@2x.png */; };
-		34D9CDEE18775F3A00F0394D /* Battery_4_.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDCA18775F3A00F0394D /* Battery_4_.png */; };
-		34D9CDEF18775F3A00F0394D /* Battery_3_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDCB18775F3A00F0394D /* Battery_3_@2x.png */; };
-		34D9CDF018775F3A00F0394D /* Battery_3_.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDCC18775F3A00F0394D /* Battery_3_.png */; };
-		34D9CDF118775F3A00F0394D /* Battery_1_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDCD18775F3A00F0394D /* Battery_1_@2x.png */; };
-		34D9CDF218775F3A00F0394D /* Alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDCE18775F3A00F0394D /* Alert.png */; };
-		34D9CDF318775F3A00F0394D /* Battery_2_.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDCF18775F3A00F0394D /* Battery_2_.png */; };
-		34D9CDF418775F3A00F0394D /* Vacuum_Toggle_OFF@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDD018775F3A00F0394D /* Vacuum_Toggle_OFF@2x.png */; };
-		34D9CDF518775F3A00F0394D /* Arrows@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDD118775F3A00F0394D /* Arrows@2x.png */; };
-		34D9CDF618775F3A00F0394D /* Vacuum_Toggle_ON@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDD218775F3A00F0394D /* Vacuum_Toggle_ON@2x.png */; };
-		34D9CDFD1877659A00F0394D /* Bounds.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDF71877659A00F0394D /* Bounds.png */; };
-		34D9CDFE1877659A00F0394D /* Bounds@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDF81877659A00F0394D /* Bounds@2x.png */; };
-		34D9CDFF1877659A00F0394D /* Halftone.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDF91877659A00F0394D /* Halftone.png */; };
-		34D9CE001877659A00F0394D /* Halftone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDFA1877659A00F0394D /* Halftone@2x.png */; };
-		34D9CE011877659A00F0394D /* Joystick.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDFB1877659A00F0394D /* Joystick.png */; };
-		34D9CE021877659A00F0394D /* Joystick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D9CDFC1877659A00F0394D /* Joystick@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		344153791891E5B800AE58B4 /* Instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions.png; sourceTree = "<group>"; };
-		3441537A1891E5B800AE58B4 /* Instructions@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Instructions@2x.png"; sourceTree = "<group>"; };
+		3419322D18B7C9B6005B91AE /* Alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Alert.png; path = Images/Alert.png; sourceTree = "<group>"; };
+		3419322E18B7C9B6005B91AE /* Alert@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Alert@2x.png"; path = "Images/Alert@2x.png"; sourceTree = "<group>"; };
+		3419322F18B7C9B6005B91AE /* Arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Arrows.png; path = Images/Arrows.png; sourceTree = "<group>"; };
+		3419323018B7C9B6005B91AE /* Arrows@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Arrows@2x.png"; path = "Images/Arrows@2x.png"; sourceTree = "<group>"; };
+		3419323118B7C9B6005B91AE /* Battery_1_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Battery_1_.png; path = Images/Battery_1_.png; sourceTree = "<group>"; };
+		3419323218B7C9B6005B91AE /* Battery_1_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Battery_1_@2x.png"; path = "Images/Battery_1_@2x.png"; sourceTree = "<group>"; };
+		3419323318B7C9B6005B91AE /* Battery_2_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Battery_2_.png; path = Images/Battery_2_.png; sourceTree = "<group>"; };
+		3419323418B7C9B6005B91AE /* Battery_2_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Battery_2_@2x.png"; path = "Images/Battery_2_@2x.png"; sourceTree = "<group>"; };
+		3419323518B7C9B6005B91AE /* Battery_3_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Battery_3_.png; path = Images/Battery_3_.png; sourceTree = "<group>"; };
+		3419323618B7C9B6005B91AE /* Battery_3_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Battery_3_@2x.png"; path = "Images/Battery_3_@2x.png"; sourceTree = "<group>"; };
+		3419323718B7C9B6005B91AE /* Battery_4_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Battery_4_.png; path = Images/Battery_4_.png; sourceTree = "<group>"; };
+		3419323818B7C9B6005B91AE /* Battery_4_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Battery_4_@2x.png"; path = "Images/Battery_4_@2x.png"; sourceTree = "<group>"; };
+		3419323918B7C9B6005B91AE /* Battery_5_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Battery_5_.png; path = Images/Battery_5_.png; sourceTree = "<group>"; };
+		3419323A18B7C9B6005B91AE /* Battery_5_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Battery_5_@2x.png"; path = "Images/Battery_5_@2x.png"; sourceTree = "<group>"; };
+		3419323B18B7C9B6005B91AE /* Battery_6_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Battery_6_.png; path = Images/Battery_6_.png; sourceTree = "<group>"; };
+		3419323C18B7C9B6005B91AE /* Battery_6_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Battery_6_@2x.png"; path = "Images/Battery_6_@2x.png"; sourceTree = "<group>"; };
+		3419323D18B7C9B6005B91AE /* Battery_7_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Battery_7_.png; path = Images/Battery_7_.png; sourceTree = "<group>"; };
+		3419323E18B7C9B6005B91AE /* Battery_7_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Battery_7_@2x.png"; path = "Images/Battery_7_@2x.png"; sourceTree = "<group>"; };
+		3419323F18B7C9B6005B91AE /* Battery_8_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Battery_8_.png; path = Images/Battery_8_.png; sourceTree = "<group>"; };
+		3419324018B7C9B6005B91AE /* Battery_8_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Battery_8_@2x.png"; path = "Images/Battery_8_@2x.png"; sourceTree = "<group>"; };
+		3419324118B7C9B6005B91AE /* Battery_9_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Battery_9_.png; path = Images/Battery_9_.png; sourceTree = "<group>"; };
+		3419324218B7C9B6005B91AE /* Battery_9_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Battery_9_@2x.png"; path = "Images/Battery_9_@2x.png"; sourceTree = "<group>"; };
+		3419324318B7C9B6005B91AE /* Battery_10_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Battery_10_.png; path = Images/Battery_10_.png; sourceTree = "<group>"; };
+		3419324418B7C9B6005B91AE /* Battery_10_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Battery_10_@2x.png"; path = "Images/Battery_10_@2x.png"; sourceTree = "<group>"; };
+		3419324518B7C9B6005B91AE /* Bounds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bounds.png; path = Images/Bounds.png; sourceTree = "<group>"; };
+		3419324618B7C9B6005B91AE /* Bounds@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bounds@2x.png"; path = "Images/Bounds@2x.png"; sourceTree = "<group>"; };
+		3419324718B7C9B6005B91AE /* Halftone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Halftone.png; path = Images/Halftone.png; sourceTree = "<group>"; };
+		3419324818B7C9B6005B91AE /* Halftone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Halftone@2x.png"; path = "Images/Halftone@2x.png"; sourceTree = "<group>"; };
+		3419324918B7C9B6005B91AE /* Instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Instructions.png; path = Images/Instructions.png; sourceTree = "<group>"; };
+		3419324A18B7C9B6005B91AE /* Instructions@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Instructions@2x.png"; path = "Images/Instructions@2x.png"; sourceTree = "<group>"; };
+		3419324B18B7C9B6005B91AE /* Joystick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Joystick.png; path = Images/Joystick.png; sourceTree = "<group>"; };
+		3419324C18B7C9B6005B91AE /* Joystick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Joystick@2x.png"; path = "Images/Joystick@2x.png"; sourceTree = "<group>"; };
+		3419324D18B7C9B6005B91AE /* Searching.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Searching.png; path = Images/Searching.png; sourceTree = "<group>"; };
+		3419324E18B7C9B6005B91AE /* Searching@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Searching@2x.png"; path = "Images/Searching@2x.png"; sourceTree = "<group>"; };
+		3419324F18B7C9B6005B91AE /* Vacuum_Toggle_OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Vacuum_Toggle_OFF.png; path = Images/Vacuum_Toggle_OFF.png; sourceTree = "<group>"; };
+		3419325018B7C9B6005B91AE /* Vacuum_Toggle_OFF@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Vacuum_Toggle_OFF@2x.png"; path = "Images/Vacuum_Toggle_OFF@2x.png"; sourceTree = "<group>"; };
+		3419325118B7C9B6005B91AE /* Vacuum_Toggle_ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Vacuum_Toggle_ON.png; path = Images/Vacuum_Toggle_ON.png; sourceTree = "<group>"; };
+		3419325218B7C9B6005B91AE /* Vacuum_Toggle_ON@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Vacuum_Toggle_ON@2x.png"; path = "Images/Vacuum_Toggle_ON@2x.png"; sourceTree = "<group>"; };
 		3472E4AE187A0FFE00EEEEE7 /* Mr. Sparkle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mr. Sparkle-Info.plist"; sourceTree = "<group>"; };
 		34AD36B3183D72ED007880E1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		34BA4CE71840A11000021605 /* RoombaController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = RoombaController.a; path = ../RoombaController/Products/RoombaController.a; sourceTree = "<group>"; };
@@ -79,42 +115,6 @@
 		34C7EA9D183BDC3F004EB549 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		34C7EA9E183BDC3F004EB549 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		34C7EAA0183BDC40004EB549 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		34D9CDAF18775F3900F0394D /* Battery_1_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Battery_1_.png; sourceTree = "<group>"; };
-		34D9CDB018775F3900F0394D /* Arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrows.png; sourceTree = "<group>"; };
-		34D9CDB118775F3900F0394D /* Vacuum_Toggle_OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vacuum_Toggle_OFF.png; sourceTree = "<group>"; };
-		34D9CDB318775F3900F0394D /* Battery_9_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Battery_9_@2x.png"; sourceTree = "<group>"; };
-		34D9CDB418775F3900F0394D /* Alert@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alert@2x.png"; sourceTree = "<group>"; };
-		34D9CDB718775F3900F0394D /* Searching.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Searching.png; sourceTree = "<group>"; };
-		34D9CDB818775F3900F0394D /* Battery_9_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Battery_9_.png; sourceTree = "<group>"; };
-		34D9CDBA18775F3A00F0394D /* Battery_10_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Battery_10_@2x.png"; sourceTree = "<group>"; };
-		34D9CDBC18775F3A00F0394D /* Vacuum_Toggle_ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vacuum_Toggle_ON.png; sourceTree = "<group>"; };
-		34D9CDBD18775F3A00F0394D /* Battery_8_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Battery_8_.png; sourceTree = "<group>"; };
-		34D9CDBE18775F3A00F0394D /* Battery_8_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Battery_8_@2x.png"; sourceTree = "<group>"; };
-		34D9CDBF18775F3A00F0394D /* Battery_7_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Battery_7_@2x.png"; sourceTree = "<group>"; };
-		34D9CDC018775F3A00F0394D /* Searching@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Searching@2x.png"; sourceTree = "<group>"; };
-		34D9CDC118775F3A00F0394D /* Battery_10_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Battery_10_.png; sourceTree = "<group>"; };
-		34D9CDC318775F3A00F0394D /* Battery_7_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Battery_7_.png; sourceTree = "<group>"; };
-		34D9CDC418775F3A00F0394D /* Battery_6_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Battery_6_@2x.png"; sourceTree = "<group>"; };
-		34D9CDC518775F3A00F0394D /* Battery_6_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Battery_6_.png; sourceTree = "<group>"; };
-		34D9CDC618775F3A00F0394D /* Battery_5_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Battery_5_@2x.png"; sourceTree = "<group>"; };
-		34D9CDC718775F3A00F0394D /* Battery_2_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Battery_2_@2x.png"; sourceTree = "<group>"; };
-		34D9CDC818775F3A00F0394D /* Battery_5_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Battery_5_.png; sourceTree = "<group>"; };
-		34D9CDC918775F3A00F0394D /* Battery_4_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Battery_4_@2x.png"; sourceTree = "<group>"; };
-		34D9CDCA18775F3A00F0394D /* Battery_4_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Battery_4_.png; sourceTree = "<group>"; };
-		34D9CDCB18775F3A00F0394D /* Battery_3_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Battery_3_@2x.png"; sourceTree = "<group>"; };
-		34D9CDCC18775F3A00F0394D /* Battery_3_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Battery_3_.png; sourceTree = "<group>"; };
-		34D9CDCD18775F3A00F0394D /* Battery_1_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Battery_1_@2x.png"; sourceTree = "<group>"; };
-		34D9CDCE18775F3A00F0394D /* Alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Alert.png; sourceTree = "<group>"; };
-		34D9CDCF18775F3A00F0394D /* Battery_2_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Battery_2_.png; sourceTree = "<group>"; };
-		34D9CDD018775F3A00F0394D /* Vacuum_Toggle_OFF@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Vacuum_Toggle_OFF@2x.png"; sourceTree = "<group>"; };
-		34D9CDD118775F3A00F0394D /* Arrows@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrows@2x.png"; sourceTree = "<group>"; };
-		34D9CDD218775F3A00F0394D /* Vacuum_Toggle_ON@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Vacuum_Toggle_ON@2x.png"; sourceTree = "<group>"; };
-		34D9CDF71877659A00F0394D /* Bounds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bounds.png; sourceTree = "<group>"; };
-		34D9CDF81877659A00F0394D /* Bounds@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bounds@2x.png"; sourceTree = "<group>"; };
-		34D9CDF91877659A00F0394D /* Halftone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Halftone.png; sourceTree = "<group>"; };
-		34D9CDFA1877659A00F0394D /* Halftone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Halftone@2x.png"; sourceTree = "<group>"; };
-		34D9CDFB1877659A00F0394D /* Joystick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Joystick.png; sourceTree = "<group>"; };
-		34D9CDFC1877659A00F0394D /* Joystick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Joystick@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,44 +193,44 @@
 		34D9CDAE18775F0A00F0394D /* images */ = {
 			isa = PBXGroup;
 			children = (
-				344153791891E5B800AE58B4 /* Instructions.png */,
-				3441537A1891E5B800AE58B4 /* Instructions@2x.png */,
-				34D9CDCE18775F3A00F0394D /* Alert.png */,
-				34D9CDB418775F3900F0394D /* Alert@2x.png */,
-				34D9CDB018775F3900F0394D /* Arrows.png */,
-				34D9CDD118775F3A00F0394D /* Arrows@2x.png */,
-				34D9CDAF18775F3900F0394D /* Battery_1_.png */,
-				34D9CDCD18775F3A00F0394D /* Battery_1_@2x.png */,
-				34D9CDCF18775F3A00F0394D /* Battery_2_.png */,
-				34D9CDC718775F3A00F0394D /* Battery_2_@2x.png */,
-				34D9CDCC18775F3A00F0394D /* Battery_3_.png */,
-				34D9CDCB18775F3A00F0394D /* Battery_3_@2x.png */,
-				34D9CDCA18775F3A00F0394D /* Battery_4_.png */,
-				34D9CDC918775F3A00F0394D /* Battery_4_@2x.png */,
-				34D9CDC818775F3A00F0394D /* Battery_5_.png */,
-				34D9CDC618775F3A00F0394D /* Battery_5_@2x.png */,
-				34D9CDC518775F3A00F0394D /* Battery_6_.png */,
-				34D9CDC418775F3A00F0394D /* Battery_6_@2x.png */,
-				34D9CDC318775F3A00F0394D /* Battery_7_.png */,
-				34D9CDBF18775F3A00F0394D /* Battery_7_@2x.png */,
-				34D9CDBD18775F3A00F0394D /* Battery_8_.png */,
-				34D9CDBE18775F3A00F0394D /* Battery_8_@2x.png */,
-				34D9CDB818775F3900F0394D /* Battery_9_.png */,
-				34D9CDB318775F3900F0394D /* Battery_9_@2x.png */,
-				34D9CDC118775F3A00F0394D /* Battery_10_.png */,
-				34D9CDBA18775F3A00F0394D /* Battery_10_@2x.png */,
-				34D9CDF71877659A00F0394D /* Bounds.png */,
-				34D9CDF81877659A00F0394D /* Bounds@2x.png */,
-				34D9CDF91877659A00F0394D /* Halftone.png */,
-				34D9CDFA1877659A00F0394D /* Halftone@2x.png */,
-				34D9CDFB1877659A00F0394D /* Joystick.png */,
-				34D9CDFC1877659A00F0394D /* Joystick@2x.png */,
-				34D9CDB718775F3900F0394D /* Searching.png */,
-				34D9CDC018775F3A00F0394D /* Searching@2x.png */,
-				34D9CDBC18775F3A00F0394D /* Vacuum_Toggle_ON.png */,
-				34D9CDD218775F3A00F0394D /* Vacuum_Toggle_ON@2x.png */,
-				34D9CDB118775F3900F0394D /* Vacuum_Toggle_OFF.png */,
-				34D9CDD018775F3A00F0394D /* Vacuum_Toggle_OFF@2x.png */,
+				3419322D18B7C9B6005B91AE /* Alert.png */,
+				3419322E18B7C9B6005B91AE /* Alert@2x.png */,
+				3419322F18B7C9B6005B91AE /* Arrows.png */,
+				3419323018B7C9B6005B91AE /* Arrows@2x.png */,
+				3419323118B7C9B6005B91AE /* Battery_1_.png */,
+				3419323218B7C9B6005B91AE /* Battery_1_@2x.png */,
+				3419323318B7C9B6005B91AE /* Battery_2_.png */,
+				3419323418B7C9B6005B91AE /* Battery_2_@2x.png */,
+				3419323518B7C9B6005B91AE /* Battery_3_.png */,
+				3419323618B7C9B6005B91AE /* Battery_3_@2x.png */,
+				3419323718B7C9B6005B91AE /* Battery_4_.png */,
+				3419323818B7C9B6005B91AE /* Battery_4_@2x.png */,
+				3419323918B7C9B6005B91AE /* Battery_5_.png */,
+				3419323A18B7C9B6005B91AE /* Battery_5_@2x.png */,
+				3419323B18B7C9B6005B91AE /* Battery_6_.png */,
+				3419323C18B7C9B6005B91AE /* Battery_6_@2x.png */,
+				3419323D18B7C9B6005B91AE /* Battery_7_.png */,
+				3419323E18B7C9B6005B91AE /* Battery_7_@2x.png */,
+				3419323F18B7C9B6005B91AE /* Battery_8_.png */,
+				3419324018B7C9B6005B91AE /* Battery_8_@2x.png */,
+				3419324118B7C9B6005B91AE /* Battery_9_.png */,
+				3419324218B7C9B6005B91AE /* Battery_9_@2x.png */,
+				3419324318B7C9B6005B91AE /* Battery_10_.png */,
+				3419324418B7C9B6005B91AE /* Battery_10_@2x.png */,
+				3419324518B7C9B6005B91AE /* Bounds.png */,
+				3419324618B7C9B6005B91AE /* Bounds@2x.png */,
+				3419324718B7C9B6005B91AE /* Halftone.png */,
+				3419324818B7C9B6005B91AE /* Halftone@2x.png */,
+				3419324918B7C9B6005B91AE /* Instructions.png */,
+				3419324A18B7C9B6005B91AE /* Instructions@2x.png */,
+				3419324B18B7C9B6005B91AE /* Joystick.png */,
+				3419324C18B7C9B6005B91AE /* Joystick@2x.png */,
+				3419324D18B7C9B6005B91AE /* Searching.png */,
+				3419324E18B7C9B6005B91AE /* Searching@2x.png */,
+				3419324F18B7C9B6005B91AE /* Vacuum_Toggle_OFF.png */,
+				3419325018B7C9B6005B91AE /* Vacuum_Toggle_OFF@2x.png */,
+				3419325118B7C9B6005B91AE /* Vacuum_Toggle_ON.png */,
+				3419325218B7C9B6005B91AE /* Vacuum_Toggle_ON@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -293,47 +293,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34D9CDFF1877659A00F0394D /* Halftone.png in Resources */,
-				34D9CDD518775F3A00F0394D /* Vacuum_Toggle_OFF.png in Resources */,
-				34D9CDE418775F3A00F0394D /* Searching@2x.png in Resources */,
-				34D9CDF518775F3A00F0394D /* Arrows@2x.png in Resources */,
-				34D9CDED18775F3A00F0394D /* Battery_4_@2x.png in Resources */,
-				34D9CDFE1877659A00F0394D /* Bounds@2x.png in Resources */,
-				34D9CE001877659A00F0394D /* Halftone@2x.png in Resources */,
+				3419327518B7C9B6005B91AE /* Vacuum_Toggle_OFF.png in Resources */,
+				3419326018B7C9B6005B91AE /* Battery_5_@2x.png in Resources */,
+				3419327418B7C9B6005B91AE /* Searching@2x.png in Resources */,
+				3419326C18B7C9B6005B91AE /* Bounds@2x.png in Resources */,
+				3419325418B7C9B6005B91AE /* Alert@2x.png in Resources */,
+				3419325318B7C9B6005B91AE /* Alert.png in Resources */,
+				3419326718B7C9B6005B91AE /* Battery_9_.png in Resources */,
+				3419325C18B7C9B6005B91AE /* Battery_3_@2x.png in Resources */,
+				3419326818B7C9B6005B91AE /* Battery_9_@2x.png in Resources */,
+				3419327218B7C9B6005B91AE /* Joystick@2x.png in Resources */,
+				3419327318B7C9B6005B91AE /* Searching.png in Resources */,
+				3419326918B7C9B6005B91AE /* Battery_10_.png in Resources */,
+				3419325918B7C9B6005B91AE /* Battery_2_.png in Resources */,
+				3419326218B7C9B6005B91AE /* Battery_6_@2x.png in Resources */,
+				3419325D18B7C9B6005B91AE /* Battery_4_.png in Resources */,
+				3419326118B7C9B6005B91AE /* Battery_6_.png in Resources */,
+				3419326E18B7C9B6005B91AE /* Halftone@2x.png in Resources */,
+				3419327118B7C9B6005B91AE /* Joystick.png in Resources */,
+				3419327618B7C9B6005B91AE /* Vacuum_Toggle_OFF@2x.png in Resources */,
+				3419326D18B7C9B6005B91AE /* Halftone.png in Resources */,
+				3419325818B7C9B6005B91AE /* Battery_1_@2x.png in Resources */,
+				3419327718B7C9B6005B91AE /* Vacuum_Toggle_ON.png in Resources */,
 				34C7EAA1183BDC40004EB549 /* Images.xcassets in Resources */,
-				34D9CDD718775F3A00F0394D /* Battery_9_@2x.png in Resources */,
-				34D9CDF318775F3A00F0394D /* Battery_2_.png in Resources */,
-				34D9CDE018775F3A00F0394D /* Vacuum_Toggle_ON.png in Resources */,
-				34D9CDE118775F3A00F0394D /* Battery_8_.png in Resources */,
-				34D9CDE818775F3A00F0394D /* Battery_6_@2x.png in Resources */,
-				34D9CDF418775F3A00F0394D /* Vacuum_Toggle_OFF@2x.png in Resources */,
-				34D9CDDC18775F3A00F0394D /* Battery_9_.png in Resources */,
-				34D9CDE318775F3A00F0394D /* Battery_7_@2x.png in Resources */,
-				34D9CDF118775F3A00F0394D /* Battery_1_@2x.png in Resources */,
-				34D9CDEB18775F3A00F0394D /* Battery_2_@2x.png in Resources */,
-				34D9CDEE18775F3A00F0394D /* Battery_4_.png in Resources */,
-				34D9CDD818775F3A00F0394D /* Alert@2x.png in Resources */,
+				3419325718B7C9B6005B91AE /* Battery_1_.png in Resources */,
+				3419327818B7C9B6005B91AE /* Vacuum_Toggle_ON@2x.png in Resources */,
+				3419326418B7C9B6005B91AE /* Battery_7_@2x.png in Resources */,
+				3419325A18B7C9B6005B91AE /* Battery_2_@2x.png in Resources */,
 				34C7EA99183BDC3F004EB549 /* Main_iPhone.storyboard in Resources */,
-				34D9CDF218775F3A00F0394D /* Alert.png in Resources */,
-				34D9CDEF18775F3A00F0394D /* Battery_3_@2x.png in Resources */,
-				34D9CDE518775F3A00F0394D /* Battery_10_.png in Resources */,
-				34D9CDE918775F3A00F0394D /* Battery_6_.png in Resources */,
-				34D9CDFD1877659A00F0394D /* Bounds.png in Resources */,
-				34D9CDDE18775F3A00F0394D /* Battery_10_@2x.png in Resources */,
-				3441537C1891E5B800AE58B4 /* Instructions@2x.png in Resources */,
-				34D9CDF618775F3A00F0394D /* Vacuum_Toggle_ON@2x.png in Resources */,
-				34D9CDE218775F3A00F0394D /* Battery_8_@2x.png in Resources */,
-				34D9CE011877659A00F0394D /* Joystick.png in Resources */,
-				34D9CDD318775F3A00F0394D /* Battery_1_.png in Resources */,
-				34D9CDDB18775F3A00F0394D /* Searching.png in Resources */,
-				3441537B1891E5B800AE58B4 /* Instructions.png in Resources */,
-				34D9CDEC18775F3A00F0394D /* Battery_5_.png in Resources */,
-				34D9CDD418775F3A00F0394D /* Arrows.png in Resources */,
-				34D9CDE718775F3A00F0394D /* Battery_7_.png in Resources */,
-				34D9CDEA18775F3A00F0394D /* Battery_5_@2x.png in Resources */,
-				34D9CDF018775F3A00F0394D /* Battery_3_.png in Resources */,
-				34D9CE021877659A00F0394D /* Joystick@2x.png in Resources */,
 				34C7EA90183BDC3F004EB549 /* InfoPlist.strings in Resources */,
+				3419325B18B7C9B6005B91AE /* Battery_3_.png in Resources */,
+				3419327018B7C9B6005B91AE /* Instructions@2x.png in Resources */,
+				3419325E18B7C9B6005B91AE /* Battery_4_@2x.png in Resources */,
+				3419326A18B7C9B6005B91AE /* Battery_10_@2x.png in Resources */,
+				3419326F18B7C9B6005B91AE /* Instructions.png in Resources */,
+				3419325618B7C9B6005B91AE /* Arrows@2x.png in Resources */,
+				3419326318B7C9B6005B91AE /* Battery_7_.png in Resources */,
+				3419325518B7C9B6005B91AE /* Arrows.png in Resources */,
+				3419326B18B7C9B6005B91AE /* Bounds.png in Resources */,
+				3419326518B7C9B6005B91AE /* Battery_8_.png in Resources */,
+				3419326618B7C9B6005B91AE /* Battery_8_@2x.png in Resources */,
+				3419325F18B7C9B6005B91AE /* Battery_5_.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
