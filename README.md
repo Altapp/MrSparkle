@@ -9,6 +9,8 @@ Just join WiFi network created by the WiFi Dongle in your iPhone's Settings, dis
 
 Demo Video: http://youtu.be/ATMR1O8Q5z8
 
+App Store: https://appsto.re/ca/k0vcW.i
+
 Required Parts: 
 - Roomba Vacuum with SCI Port 
 - WiFi-to-RS232 Dongle (http://goo.gl/C6Pfsc) 
